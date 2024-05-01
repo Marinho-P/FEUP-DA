@@ -6,11 +6,11 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(data_structures)
 
 add_executable(ProjetoDA2
-        data_structures/Graph.h
-        data_structures/MutablePriorityQueue.h
-        data_structures/UFDS.cpp
-        data_structures/UFDS.h
         Menu.cpp
-        Data.cpp
         main.cpp
-        Coordinate.cpp)
+        Vertex.h
+        Vertex.cpp
+        Edge.h
+        Graph.h
+        Graph.cpp
+        Edge.cpp)
