@@ -1,4 +1,6 @@
 #include <iostream>
+#include <chrono>
+using namespace std::chrono;
 #include "Graph.h"
 
 
@@ -124,3 +126,84 @@ void Graph::check_edges(){
         }
     }
 }
+
+void Graph::check_vertexes(){
+    if(current_vertexes_file.empty()){
+        cout << "Vertex file isn't being used" << endl;
+    }else{
+        cout << "Vertexes file being used: " << current_vertexes_file << endl;
+        for(auto vertex: vertexSet){
+            cout << "Vertex["<<vertex.getId() <<  "] with coordinates(" << vertex.getLatitude() << "," << vertex.getLongitude() << ")\n";
+        }
+    }
+}
+
+double startingNodeIsReachable(vector<Edge> vector){
+    for(auto edge:vector){
+        if(edge.getDestiny() == 0){
+            return edge.getDistance();
+        }
+    }
+    return 0.0;
+}
+
+
+void Graph::recursiveBacktracking(int currentVertexId,bool *visited,vector<int> &currentPath,vector<int> &finalPath,int nVertexes,int uniqueVertexes,double currentCost,double &finalCost){
+    if(currentCost > finalCost) return;
+
+    double distanceToReturn = startingNodeIsReachable(adj[currentVertexId]);
+
+    if(uniqueVertexes == nVertexes && distanceToReturn){
+         if(currentCost + distanceToReturn < finalCost){
+             finalCost = currentCost + distanceToReturn;
+             finalPath = currentPath;
+         }
+        return;
+    }
+
+
+    for (Edge edge : adj[currentVertexId]) {
+        if(!visited[edge.getDestiny()]){
+            visited[edge.getDestiny()] = true;
+            currentPath.push_back(edge.getDestiny());
+            recursiveBacktracking(edge.getDestiny(),visited,currentPath,finalPath,nVertexes,uniqueVertexes + 1,currentCost + edge.getDistance(),finalCost);
+            currentPath.pop_back();
+            visited[edge.getDestiny()] = false;
+        }
+    }
+}
+
+void Graph::backtracking(){
+    int nVertexes = vertexSet.size();
+    bool* visited = new bool[nVertexes];
+    for (int i = 0; i < nVertexes; ++i) {
+        visited[i] = false;
+    }
+    visited[0] = true; // set true starting vertex
+    vector<int> currentPath = {0}; // current path being taken
+    vector<int> finalPath;
+    double currentCost = 0;
+    double finalCost =  INFINITY;
+
+    auto startingPoint = high_resolution_clock::now();
+    recursiveBacktracking(0,visited,currentPath,finalPath,nVertexes,1,currentCost,finalCost);
+    auto finishPoint =  high_resolution_clock::now();
+    auto duration_ = duration_cast<duration<double>>(finishPoint - startingPoint);
+
+    delete[] visited;
+    cout << "-- Backtracking complete --" << endl;
+    cout << "Elapsed time: " << duration_.count() << " seconds" << endl;
+    cout << "Minimum cost to travel: " << finalCost << endl;
+    cout << "Path taken: ";
+    int j = 0;
+    for(auto vertex:finalPath){
+        if( j == finalPath.size()-1){
+            cout << vertex << endl;
+
+        }else{
+            cout << vertex << "-->";
+        }
+        j++;
+    }
+}
+

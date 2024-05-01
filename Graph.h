@@ -24,6 +24,11 @@ class Graph {
         const string &getCurrentVertexesFile() const;
 
     void check_edges();
+
+    void check_vertexes();
+
+    void backtracking();
+    void recursiveBacktracking(int currentVertexId,bool *visited,vector<int> &currentPath,vector<int> &finalPath,int nVertexes,int uniqueVertexes,double currentCost,double &finalCost);
 };
 
 

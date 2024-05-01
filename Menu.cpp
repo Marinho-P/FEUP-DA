@@ -20,7 +20,7 @@ int Menu::main_menu(){
                 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|\n"
                 "[7] Run all algorithms                                         |\n"
                 "[8] Show all edges                                             |\n"
-                "[9] Show all nodes                                             |\n"
+                "[9] Show all vertexes                                          |\n"
                 "[10] Show output                                               |\n"
                 "[11] Change files                                              |\n"
                 "[0] Exit                                                       |\n"
@@ -41,44 +41,33 @@ int Menu::main_menu(){
         switch (option) {
             case 0:
                 exit(0);
-
             case 1:
-                change_to_other_file();
+                graph.backtracking();
                 break;
-
             case 2:
                 //TODO
                 break;
-
             case 3:
                 //TODO
                 break;
-
             case 4:
                 //TODO
                 break;
-
             case 5:
                 //TODO
                 break;
-
             case 6:
                 //TODO
                 break;
-
-
             case 7:
                 //TODO
                 break;
-
             case 8:
                 graph.check_edges();
                 break;
-
             case 9:
-                //TODO
+                graph.check_vertexes();
                 break;
-
             case 10:
                 //TODO
                 break;
