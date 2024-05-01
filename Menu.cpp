@@ -45,7 +45,7 @@ int Menu::main_menu(){
                 graph.backtracking();
                 break;
             case 2:
-                //TODO
+                graph.triangularApproximation();
                 break;
             case 3:
                 //TODO

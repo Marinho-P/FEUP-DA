@@ -13,4 +13,5 @@ add_executable(ProjetoDA2
         Edge.h
         Graph.h
         Graph.cpp
-        Edge.cpp)
+        Edge.cpp
+        MutablePriorityQueue.h)

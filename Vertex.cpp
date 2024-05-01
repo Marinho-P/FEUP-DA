@@ -41,3 +41,14 @@ int Vertex::getId() const {
 
 Vertex::Vertex(double latitude, double longitude, int id) : latitude(latitude), longitude(longitude), id(id) {}
 
+bool Vertex::operator<(Vertex& vertex) const {
+    return this->dist < vertex.dist;
+}
+
+double Vertex::getDist() const {
+    return dist;
+}
+
+void Vertex::setDist(double dist) {
+    Vertex::dist = dist;
+}

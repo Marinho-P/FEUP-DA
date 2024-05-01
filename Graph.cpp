@@ -2,6 +2,8 @@
 #include <chrono>
 using namespace std::chrono;
 #include "Graph.h"
+#include "MutablePriorityQueue.h"
+#include "algorithm"
 
 
 Graph::Graph(const string &edges, const string &vertexes){
@@ -161,7 +163,6 @@ void Graph::recursiveBacktracking(int currentVertexId,bool *visited,vector<int> 
         return;
     }
 
-
     for (Edge edge : adj[currentVertexId]) {
         if(!visited[edge.getDestiny()]){
             visited[edge.getDestiny()] = true;
@@ -173,6 +174,23 @@ void Graph::recursiveBacktracking(int currentVertexId,bool *visited,vector<int> 
     }
 }
 
+double Graph::getMinimumCost(vector<int> path){
+    double minimumCost = 0;
+    for(int i = 0; i < path.size() - 1;i++){
+        minimumCost+= getDistance(path[i],path[i+1]);
+    }
+    return minimumCost;
+}
+
+double Graph::getDistance(int v, int w){
+    for(auto edge:adj[v]){
+        if(edge.getDestiny() == w){
+            return edge.getDistance();
+        }
+    }
+    return vertexSet[v].calculateDistanceToVertex(vertexSet[w]);
+}
+
 void Graph::backtracking(){
     int nVertexes = vertexSet.size();
     bool* visited = new bool[nVertexes];
@@ -180,6 +198,7 @@ void Graph::backtracking(){
         visited[i] = false;
     }
     visited[0] = true; // set true starting vertex
+
     vector<int> currentPath = {0}; // current path being taken
     vector<int> finalPath;
     double currentCost = 0;
@@ -196,6 +215,7 @@ void Graph::backtracking(){
     cout << "Minimum cost to travel: " << finalCost << endl;
     cout << "Path taken: ";
     int j = 0;
+    finalPath.push_back(0);
     for(auto vertex:finalPath){
         if( j == finalPath.size()-1){
             cout << vertex << endl;
@@ -206,4 +226,101 @@ void Graph::backtracking(){
         j++;
     }
 }
+
+
+vector<vector<Edge>> Graph::getPrimMST(){
+    MutablePriorityQueue<Vertex> q;
+    vector<int> path = {0};
+    vector<pair<int, float>>  parent (vertexSet.size(), {-1, 0.0});
+    bool* visited = new bool[vertexSet.size()];
+
+    for (int i = 0; i < vertexSet.size(); ++i) {
+        visited[i] = false;
+        vertexSet[i].setDist(INFINITY);
+    }
+    visited[0] = true;
+
+    for (auto& vertex : vertexSet) { // Use reference to avoid copying
+        q.insert(&vertex); // Insert pointer to the original element
+    }
+
+    vertexSet[0].setDist(0);
+    q.decreaseKey(&vertexSet[0]);
+
+    while (!q.empty()){
+        Vertex* vertex = q.extractMin();
+        visited[vertex->getId()] = true;
+
+        for(Edge &u:adj[vertex->getId()]) {
+            Vertex &minVertex = vertexSet[u.getDestiny()];
+            if (!visited[minVertex.getId()] && u.getDistance() < minVertex.getDist()) {
+                minVertex.setDist(u.getDistance());
+                parent[minVertex.getId()] = {vertex->getId(),minVertex.getDist()};
+                q.decreaseKey(&minVertex);
+            }
+        }
+    }
+    vector<vector<Edge>> mst (vertexSet.size());
+
+    for(int i = 0; i < vertexSet.size(); i++){
+        if(parent[i].first != -1){
+            int w = parent[i].first;
+            double distance = parent[i].second;
+            mst[w].push_back({i, distance});
+            mst[i].push_back({w, distance}); // mst bidirectional
+        }
+    }
+    delete [] visited;
+    return mst;
+}
+
+void Graph::preorderWalkMST(const vector<vector<Edge>> &mst, int currentVertex,bool *visited, vector<int> &tour){
+    visited[currentVertex] = true;
+    tour.push_back(currentVertex);
+
+    vector<Edge> vector = mst[currentVertex];
+    sort(vector.begin(), vector.end(), [&](const Edge &edge, const Edge &other) {
+        return vertexSet[edge.getDestiny()].calculateDistanceToVertex(vertexSet[currentVertex]) < vertexSet[other.getDestiny()].calculateDistanceToVertex(vertexSet[currentVertex]);
+    });
+
+    for (const Edge &edge : vector) {
+        if (!visited[edge.getDestiny()]) {
+            preorderWalkMST(mst, edge.getDestiny(), visited, tour);
+        }
+    }
+}
+
+void Graph::triangularApproximation(){
+
+    bool* v = new bool[vertexSet.size()];
+    for (int i = 0; i < vertexSet.size(); ++i) {
+        v[i] = false;
+    }
+
+    auto startingPoint = high_resolution_clock::now();
+    vector<int> tour;
+    vector<vector<Edge>> mst = getPrimMST();
+    preorderWalkMST(mst,0,v,tour);
+    auto finishPoint =  high_resolution_clock::now();
+
+    auto duration_ = duration_cast<duration<double>>(finishPoint - startingPoint);
+    delete [] v;
+    tour.push_back(0);
+
+    cout << "-- Triangular Approximation complete --" << endl;
+    cout << "Elapsed time: " << duration_.count() << " seconds" << endl;
+    cout << "Minimum cost to travel: "  << getMinimumCost(tour)<< endl;
+    cout << "Path taken: ";
+    int j = 0;
+    for(auto vertex:tour){
+        if( j == tour.size()-1){
+            cout << vertex << endl;
+
+        }else{
+            cout << vertex << "-->";
+        }
+        j++;
+    }
+}
+
 

@@ -22,13 +22,17 @@ class Graph {
         const vector<vector<Edge>> &getAdj() const;
         const string &getCurrentEdgesFile() const;
         const string &getCurrentVertexesFile() const;
+        void check_edges();
+        void check_vertexes();
+        void backtracking();
+        void recursiveBacktracking(int currentVertexId,bool *visited,vector<int> &currentPath,vector<int> &finalPath,int nVertexes,int uniqueVertexes,double currentCost,double &finalCost);
+        void triangularApproximation();
+        vector<vector<Edge>> getPrimMST();
+        double getDistance(int v, int w);
 
-    void check_edges();
+    void preorderWalkMST(const vector<vector<Edge>> &mst, int currentVertex, bool *visited, vector<int> &tour);
 
-    void check_vertexes();
-
-    void backtracking();
-    void recursiveBacktracking(int currentVertexId,bool *visited,vector<int> &currentPath,vector<int> &finalPath,int nVertexes,int uniqueVertexes,double currentCost,double &finalCost);
+    double getMinimumCost(vector<int> path);
 };
 
 

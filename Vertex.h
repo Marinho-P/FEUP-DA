@@ -14,13 +14,20 @@ class Vertex {
         double getLatitude() const;
         double getLongitude() const;
         int getId() const;
-
-    Vertex(double latitude, double longitude, int id);
-
+        Vertex(double latitude, double longitude, int id);
+        bool operator<(Vertex& vertex) const;
+        int queueIndex = 0; // required for MST
 private:
         double latitude;
         double longitude;
-        int id;
+public:
+    double getDist() const;
+
+    void setDist(double dist);
+
+private:
+    int id;
+        double dist = INFINITY; // required for MST
 };
 
 
