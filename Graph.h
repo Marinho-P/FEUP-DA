@@ -33,6 +33,18 @@ class Graph {
     void preorderWalkMST(const vector<vector<Edge>> &mst, int currentVertex, bool *visited, vector<int> &tour);
 
     double getMinimumCost(vector<int> path);
+
+    void Christofides();
+
+    void perfectMatching(vector<vector<Edge>> &mst, vector<pair<int, int>> &matchingVertexes);
+
+    void euler_tour(vector<pair<int, int>> &matchingVertexes, vector<int> &path,vector<vector<Edge>> &mst);
+
+    vector<int> make_hamiltonian(vector<int> &path);
+
+    vector<vector<double>> createReducedMatrix();
+
+    void twoOptSearchOptimization(vector<int> &tour, const vector<vector<double>> &distanceMatrix);
 };
 
 

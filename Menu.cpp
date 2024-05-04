@@ -57,7 +57,7 @@ int Menu::main_menu(){
                 //TODO
                 break;
             case 6:
-                //TODO
+                graph.Christofides();
                 break;
             case 7:
                 //TODO

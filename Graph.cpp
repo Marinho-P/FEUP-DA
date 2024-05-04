@@ -1,5 +1,9 @@
 #include <iostream>
 #include <chrono>
+#include <queue>
+#include <stack>
+#include <unordered_set>
+
 using namespace std::chrono;
 #include "Graph.h"
 #include "MutablePriorityQueue.h"
@@ -279,9 +283,6 @@ void Graph::preorderWalkMST(const vector<vector<Edge>> &mst, int currentVertex,b
     tour.push_back(currentVertex);
 
     vector<Edge> vector = mst[currentVertex];
-    sort(vector.begin(), vector.end(), [&](const Edge &edge, const Edge &other) {
-        return vertexSet[edge.getDestiny()].calculateDistanceToVertex(vertexSet[currentVertex]) < vertexSet[other.getDestiny()].calculateDistanceToVertex(vertexSet[currentVertex]);
-    });
 
     for (const Edge &edge : vector) {
         if (!visited[edge.getDestiny()]) {
@@ -323,4 +324,153 @@ void Graph::triangularApproximation(){
     }
 }
 
+
+void Graph::perfectMatching(vector<vector<Edge>> &mst, vector<pair<int, int>> &matchingVertexes) {
+    bool* visited = new bool[mst.size()];
+    for (int i = 0; i < mst.size(); ++i) {
+        visited[i] = false;
+    }
+
+    // Find nodes with odd degrees in T to get subgraph O
+    vector<int> oddVertices;
+    for(int vertexId = 0; vertexId < mst.size();vertexId++){
+        if( mst[vertexId].size() % 2 != 0){
+            oddVertices.push_back(vertexId);
+        }
+    }
+
+    for(int vertex: oddVertices){
+        if(!visited[vertex]){
+            double minDistance = INFINITY;
+            int matchingVertex = -1;
+
+            for (const Edge& e : mst[vertex]) {
+                int v = e.getDestiny();
+                double cost = e.getDistance();
+                if (!visited[v] && cost < minDistance) {
+                    minDistance = cost;
+                    matchingVertex = v;
+                }
+            }
+
+            if (matchingVertex != -1) {
+                matchingVertexes.push_back({ vertex, matchingVertex });
+                visited[vertex] = true;
+                visited[matchingVertex] = true;
+            }
+        }
+    }
+
+}
+//find an euler circuit
+void Graph::euler_tour(vector<pair<int, int>> &matchingVertexes, vector<int> &path,vector<vector<Edge>> &mst){
+    // Para criar o path temos de fazer a mst e dps juntar os matching vertexes
+
+    for(int i = 0; i < mst.size(); i++ ){
+        for(auto edge:mst[i]){
+            path.push_back(i);
+            path.push_back(edge.getDestiny());
+        }
+    }
+
+    for(auto pairVertices:matchingVertexes){
+        path.push_back(pairVertices.first);
+        path.push_back(pairVertices.second);
+    }
+
+}
+
+vector<int> Graph::make_hamiltonian(vector<int> &path){
+    //remove visited nodes from Euler tour
+    unordered_set<int> uniqueVertices;
+    vector<int> newPath;
+
+    for(auto vertex:path){
+        if(uniqueVertices.insert(vertex).second){
+            newPath.push_back(vertex);
+        }
+    }
+
+    return  newPath;
+}
+
+vector<vector<double>> Graph::createReducedMatrix(){
+    vector<vector<double>> distanceMatrix(vertexSet.size(),vector<double>(vertexSet.size(),INFINITY));
+
+    for(auto vertex:vertexSet){
+        for(auto edge: adj[vertex.getId()]){
+            distanceMatrix[vertex.getId()][edge.getDestiny()] = edge.getDistance();
+        }
+    }
+    return distanceMatrix;
+}
+
+void Graph::twoOptSearchOptimization(vector<int>& tour, const vector<vector<double>>& distanceMatrix){
+    bool improvement = true;
+
+    while (improvement) {
+        improvement = false;
+
+        for (int i = 1; i < tour.size() - 1; ++i) {
+            for (int k = i + 1; k < tour.size(); ++k) {
+                // Get the indices of the nodes forming the current edge pair
+                int edge1_start = tour[i - 1];
+                int edge1_end = tour[i];
+                int edge2_start = tour[k];
+                int edge2_end = (k == tour.size() - 1) ? tour[0] : tour[k + 1];
+
+                // Calculate the distances of the two edges and the reversed edges
+                double original_length = distanceMatrix[edge1_start][edge1_end] + distanceMatrix[edge2_start][edge2_end];
+                double reversed_length = distanceMatrix[edge1_start][edge2_start] + distanceMatrix[edge1_end][edge2_end];
+
+                // If reversing the order results in a shorter tour, accept the modification
+                if (reversed_length < original_length) {
+                    reverse(tour.begin() + i, tour.begin() + k + 1);
+                    improvement = true;
+                }
+            }
+        }
+    }
+}
+
+
+void Graph::Christofides(){
+
+    vector<int> path;
+    vector<pair<int, int>> matchingVertexes;
+
+    auto startingPoint = high_resolution_clock::now();
+
+    vector<vector<Edge>> mst = getPrimMST();
+    // encontrar perfect matching
+    perfectMatching(mst,matchingVertexes);
+    // juntar as edges da mst com o perfect matching
+    euler_tour(matchingVertexes,path,mst);
+    // Retirar nodes repetidos.
+    vector<int> finalPath = make_hamiltonian(path);
+
+    vector<vector<double>> distMatrix = createReducedMatrix();
+    //reverse the order of nodes between pairs of their edges
+    twoOptSearchOptimization(finalPath,distMatrix);
+
+    auto finishPoint =  high_resolution_clock::now();
+
+    auto duration_ = duration_cast<duration<double>>(finishPoint - startingPoint);
+
+    finalPath.push_back(0);
+    cout << "-- Christofides Algorithm complete --" << endl;
+    cout << "Elapsed time: " << duration_.count() << " seconds" << endl;
+    cout << "Minimum cost to travel: "<< getMinimumCost(finalPath) <<  endl;
+    cout << "Path taken: ";
+    int j = 0;
+    for(auto vertex:finalPath){
+        if( j == finalPath.size()-1){
+            cout << vertex << endl;
+
+        }else{
+            cout << vertex << "-->";
+        }
+        j++;
+    }
+}
 
