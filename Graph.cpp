@@ -232,9 +232,9 @@ void Graph::backtracking(){
 }
 
 
-vector<vector<Edge>> Graph::getPrimMST(){
+vector<vector<Edge>> Graph::getPrimMST(int startingNode){
     MutablePriorityQueue<Vertex> q;
-    vector<int> path = {0};
+    vector<int> path = {startingNode};
     vector<pair<int, float>>  parent (vertexSet.size(), {-1, 0.0});
     bool* visited = new bool[vertexSet.size()];
 
@@ -242,14 +242,14 @@ vector<vector<Edge>> Graph::getPrimMST(){
         visited[i] = false;
         vertexSet[i].setDist(INFINITY);
     }
-    visited[0] = true;
+    visited[startingNode] = true;
 
     for (auto& vertex : vertexSet) { // Use reference to avoid copying
         q.insert(&vertex); // Insert pointer to the original element
     }
 
-    vertexSet[0].setDist(0);
-    q.decreaseKey(&vertexSet[0]);
+    vertexSet[startingNode].setDist(0);
+    q.decreaseKey(&vertexSet[startingNode]);
 
     while (!q.empty()){
         Vertex* vertex = q.extractMin();
@@ -360,18 +360,13 @@ void Graph::perfectMatching(vector<vector<Edge>> &mst, vector<pair<int, int>> &m
             }
         }
     }
-
+    delete [] visited;
 }
 //find an euler circuit
-void Graph::euler_tour(vector<pair<int, int>> &matchingVertexes, vector<int> &path,vector<vector<Edge>> &mst){
+void Graph::euler_tour(vector<pair<int, int>> &matchingVertexes, vector<int> &path,vector<vector<Edge>> &mst, int startingNode){
     // Para criar o path temos de fazer a mst e dps juntar os matching vertexes
-
-    for(int i = 0; i < mst.size(); i++ ){
-        for(auto edge:mst[i]){
-            path.push_back(i);
-            path.push_back(edge.getDestiny());
-        }
-    }
+    vector<bool> visited(vertexSet.size(), false); // Initialize visited array
+    dfs(startingNode, visited, mst, path);
 
     for(auto pairVertices:matchingVertexes){
         path.push_back(pairVertices.first);
@@ -390,7 +385,6 @@ vector<int> Graph::make_hamiltonian(vector<int> &path){
             newPath.push_back(vertex);
         }
     }
-
     return  newPath;
 }
 
@@ -432,35 +426,100 @@ void Graph::twoOptSearchOptimization(vector<int>& tour, const vector<vector<doub
         }
     }
 }
+void Graph::dfs(int vertex, vector<bool> &visited, vector<vector<Edge>> &mst, vector<int> &path) {
+    visited[vertex] = true; // Mark the current vertex as visited
+    for (const Edge& edge : mst[vertex]) {
+        int dest = edge.getDestiny();
+        if (!visited[dest]) { // If the adjacent vertex hasn't been visited
+            path.push_back(vertex); // Add the current vertex to the path
+            path.push_back(dest); // Add the adjacent vertex to the path
+            dfs(dest, visited, mst, path); // Recursively visit the adjacent vertex
+        }
+    }
+}
 
+bool Graph::isFeasiblePath(int startingNode, const vector<vector<double>>& distanceMatrix) {
+    vector<bool> visited(vertexSet.size(), false); // Initialize visited array
+    queue<int> q; // Queue for BFS
 
+    // Start BFS from the starting node
+    q.push(startingNode);
+    visited[startingNode] = true;
+
+    while (!q.empty()) {
+        int current = q.front();
+        q.pop();
+
+        // Check all adjacent nodes of the current node
+        for (int neighbor = 0; neighbor < vertexSet.size(); ++neighbor) {
+            // If there's a connection to the current node and the neighbor hasn't been visited yet
+            if (distanceMatrix[current][neighbor] != INFINITY && !visited[neighbor]) {
+                // Mark the neighbor as visited and add it to the queue
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+
+    // Check if all nodes were visited, indicating a path back to the starting node
+    return all_of(visited.begin(), visited.end(), [](bool v) { return v; });
+}
 void Graph::Christofides(){
+    int startingNode;
+    cout<<"Choose a node between 0 and " << vertexSet.size() - 1 << " to start from:" << endl;
+    cin>>startingNode;
+
+    if (cin.fail() || cin.peek() != '\n' || startingNode > vertexSet.size() - 1 || startingNode < 0) {
+        cerr << "Invalid input" << endl;
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
+        Christofides();
+    }
 
     vector<int> path;
     vector<pair<int, int>> matchingVertexes;
 
     auto startingPoint = high_resolution_clock::now();
 
-    vector<vector<Edge>> mst = getPrimMST();
+    vector<vector<Edge>> mst = getPrimMST(startingNode);
     // encontrar perfect matching
     perfectMatching(mst,matchingVertexes);
     // juntar as edges da mst com o perfect matching
-    euler_tour(matchingVertexes,path,mst);
+    euler_tour(matchingVertexes,path,mst,startingNode);
     // Retirar nodes repetidos.
     vector<int> finalPath = make_hamiltonian(path);
 
     vector<vector<double>> distMatrix = createReducedMatrix();
+
+    if (!isFeasiblePath(startingNode, distMatrix)){
+        cout << "There is no available path" << endl;
+        return;
+    }
+
     //reverse the order of nodes between pairs of their edges
     twoOptSearchOptimization(finalPath,distMatrix);
+
 
     auto finishPoint =  high_resolution_clock::now();
 
     auto duration_ = duration_cast<duration<double>>(finishPoint - startingPoint);
 
-    finalPath.push_back(0);
+    finalPath.push_back(startingNode);
+
+    if(isCircularPath(finalPath,startingNode)){
+        cout << "Path made is incorrect" << endl;
+        return;
+    }
+    double finalCost = 0;
+
+    if(!calculatePathCostWithoutCoordinates(finalPath,finalCost)){
+        cout << "There is no available path" << endl;
+        return;
+    }
+
     cout << "-- Christofides Algorithm complete --" << endl;
     cout << "Elapsed time: " << duration_.count() << " seconds" << endl;
-    cout << "Minimum cost to travel: "<< getMinimumCost(finalPath) <<  endl;
+    cout << "Minimum cost to travel: "<< finalCost <<  endl;
     cout << "Path taken: ";
     int j = 0;
     for(auto vertex:finalPath){
@@ -473,4 +532,35 @@ void Graph::Christofides(){
         j++;
     }
 }
+double Graph::checkDistance(int v, int w){
+    for(auto edge:adj[v]){
+        if(edge.getDestiny() == w){
+            return edge.getDistance();
+        }
+    }
+    return -1.0;
+}
 
+bool Graph::calculatePathCostWithoutCoordinates(vector<int> path,double &minimumCost){
+    for(int i = 0; i < path.size() - 1;i++){
+        double cost = checkDistance(path[i],path[i+1]);
+        if(cost == -1.0) return false;
+        minimumCost+= cost;
+    }
+    return true;
+}
+
+
+
+bool Graph::isCircularPath(vector<int> &path, int startingNode){
+    if(path.size() != vertexSet.size()){
+        return false;
+    }
+
+    if (path.front() != startingNode || path.back() != startingNode) {
+        return false; // Path doesn't start and end at the specified node
+    }
+
+
+    return true;
+}

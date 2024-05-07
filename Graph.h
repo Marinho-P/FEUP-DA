@@ -27,7 +27,7 @@ class Graph {
         void backtracking();
         void recursiveBacktracking(int currentVertexId,bool *visited,vector<int> &currentPath,vector<int> &finalPath,int nVertexes,int uniqueVertexes,double currentCost,double &finalCost);
         void triangularApproximation();
-        vector<vector<Edge>> getPrimMST();
+        vector<vector<Edge>> getPrimMST(int startingNode = 0);
         double getDistance(int v, int w);
 
     void preorderWalkMST(const vector<vector<Edge>> &mst, int currentVertex, bool *visited, vector<int> &tour);
@@ -38,13 +38,23 @@ class Graph {
 
     void perfectMatching(vector<vector<Edge>> &mst, vector<pair<int, int>> &matchingVertexes);
 
-    void euler_tour(vector<pair<int, int>> &matchingVertexes, vector<int> &path,vector<vector<Edge>> &mst);
+    void euler_tour(vector<pair<int, int>> &matchingVertexes, vector<int> &path,vector<vector<Edge>> &mst,int startingNode);
 
     vector<int> make_hamiltonian(vector<int> &path);
 
     vector<vector<double>> createReducedMatrix();
 
     void twoOptSearchOptimization(vector<int> &tour, const vector<vector<double>> &distanceMatrix);
+
+    void dfs(int vertex, vector<bool> &visited, vector<vector<Edge>> &mst, vector<int> &path);
+
+    bool isCircularPath(vector<int> &path, int startingNode = 0);
+
+    bool isFeasiblePath(int startingNode, const vector<vector<double>> &distanceMatrix);
+
+    bool calculatePathCostWithoutCoordinates(vector<int> path, double &minimumCost);
+
+    double checkDistance(int v, int w);
 };
 
 
