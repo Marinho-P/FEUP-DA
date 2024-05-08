@@ -55,6 +55,10 @@ class Graph {
     bool calculatePathCostWithoutCoordinates(vector<int> path, double &minimumCost);
 
     double checkDistance(int v, int w);
+
+    void checkCurrentFiles();
+
+    void runAllAlgorithms();
 };
 
 

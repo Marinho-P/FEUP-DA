@@ -17,16 +17,12 @@ class Vertex {
         Vertex(double latitude, double longitude, int id);
         bool operator<(Vertex& vertex) const;
         int queueIndex = 0; // required for MST
-private:
+        double getDist() const;
+        void setDist(double dist);
+    private:
         double latitude;
         double longitude;
-public:
-    double getDist() const;
-
-    void setDist(double dist);
-
-private:
-    int id;
+        int id;
         double dist = INFINITY; // required for MST
 };
 

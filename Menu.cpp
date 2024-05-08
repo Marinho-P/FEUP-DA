@@ -11,18 +11,16 @@ int Menu::main_menu(){
                 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|\n"
                 "[1] Backtracking Algorithm                                     |\n"
                 "[2] Triangular Approximation                                   |\n"
-                "[3] Triangular Approximation using matrix                      |\n"
-                "[4] ACO                                                        |\n"
-                "[5] Annealing                                                  |\n"
-                "[6] Christofides Algorithm                                     |\n"
+                "[3] Christofides Algorithm                                     |\n"
+                "[4] //TODO                                                     |\n"
                 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|\n"
                 "|                       More ops                               |\n"
                 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|\n"
-                "[7] Run all algorithms                                         |\n"
-                "[8] Show all edges                                             |\n"
-                "[9] Show all vertexes                                          |\n"
-                "[10] Show output                                               |\n"
-                "[11] Change files                                              |\n"
+                "[5] Run all algorithms                                         |\n"
+                "[6] Show all edges                                             |\n"
+                "[7] Show all vertexes                                          |\n"
+                "[8] Change files                                               |\n"
+                "[9] Check current file(s)                                      |\n"
                 "[0] Exit                                                       |\n"
                 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|\n";
 
@@ -48,31 +46,25 @@ int Menu::main_menu(){
                 graph.triangularApproximation();
                 break;
             case 3:
-                //TODO
+                graph.Christofides();
                 break;
             case 4:
                 //TODO
                 break;
             case 5:
-                //TODO
+                graph.runAllAlgorithms();
                 break;
             case 6:
-                graph.Christofides();
-                break;
-            case 7:
-                //TODO
-                break;
-            case 8:
                 graph.check_edges();
                 break;
-            case 9:
+            case 7:
                 graph.check_vertexes();
                 break;
-            case 10:
-                //TODO
-                break;
-            case 11:
+            case 8:
                 change_to_other_file();
+                break;
+            case 9:
+                graph.checkCurrentFiles();
                 break;
             default:
                 cerr << "Invalid input" << endl;

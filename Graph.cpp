@@ -197,6 +197,10 @@ double Graph::getDistance(int v, int w){
 
 void Graph::backtracking(){
     int nVertexes = vertexSet.size();
+    if(nVertexes > 20){
+        cout << "Unreasonable amount of nodes will not execute" << endl;
+        return;
+    }
     bool* visited = new bool[nVertexes];
     for (int i = 0; i < nVertexes; ++i) {
         visited[i] = false;
@@ -564,3 +568,20 @@ bool Graph::isCircularPath(vector<int> &path, int startingNode){
 
     return true;
 }
+
+void Graph::checkCurrentFiles(){
+    cout << "Current file(s) being used: " << current_edges_file;
+    if(!current_vertexes_file.empty()){
+        cout << " and " << current_vertexes_file << endl;
+    }else{
+        cout << endl;
+    }
+}
+
+void Graph::runAllAlgorithms(){
+    cout << "---Executing all algorithms---" << endl;
+    backtracking();
+    triangularApproximation();
+    Christofides();
+}
+
