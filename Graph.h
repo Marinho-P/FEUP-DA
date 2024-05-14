@@ -59,6 +59,23 @@ class Graph {
     void checkCurrentFiles();
 
     void runAllAlgorithms();
+
+    void optimizedTriangularApproximation();
+
+
+
+    void createClusters(double dist, vector<vector<double>> distanceMatrix, vector<vector<Vertex>> &newAdj,
+                        vector<Vertex> &anchors);
+
+
+
+
+
+
+    static void
+    getPrimMSTopt(vector<pair<int,float>>& parent,bool * visited, Vertex &start, vector<vector<Vertex>>& clusterAdj, vector<vector<double>>& distanceMatrix,
+                  vector<vector<Vertex>> &mstAdj);
+    void preorderWalkOpt(vector<int>& path,bool* visited, Vertex& start, vector<vector<Vertex>>& mstAdj);
 };
 
 

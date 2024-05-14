@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 #include "Menu.h"
 
 Menu::Menu() {
@@ -49,7 +50,7 @@ int Menu::main_menu(){
                 graph.Christofides();
                 break;
             case 4:
-                //TODO
+                graph.optimizedTriangularApproximation();
                 break;
             case 5:
                 graph.runAllAlgorithms();
