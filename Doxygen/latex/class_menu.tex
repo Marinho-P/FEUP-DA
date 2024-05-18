@@ -1,0 +1,82 @@
+\doxysection{Menu Class Reference}
+\hypertarget{class_menu}{}\label{class_menu}\index{Menu@{Menu}}
+
+
+Class that serves as the interactive menu for the user.  
+
+
+
+
+{\ttfamily \#include $<$Menu.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_menu_ad466dd83355124a6ed958430450bfe94}\label{class_menu_ad466dd83355124a6ed958430450bfe94} 
+{\bfseries Menu} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_menu}{Menu} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_menu_af93a970cdfec463a8cb25ca65bf51da5}{run}} ()
+\begin{DoxyCompactList}\small\item\em Displays the main menu and handles user input. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_menu_abf636a05130bea04b35bd46aaf907a3d}{currently\+\_\+used\+\_\+file}} (string file)
+\begin{DoxyCompactList}\small\item\em Checks if a given file is currently being used. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_ab4af413eeb65f0c94d76970f9aef84f4}\label{class_menu_ab4af413eeb65f0c94d76970f9aef84f4} 
+void {\bfseries change\+\_\+to\+\_\+other\+\_\+file} ()
+\begin{DoxyCompactList}\small\item\em Changes the current file(s) being used by the graph. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_menu_ab3a786e6dada1c5d3f6237728b3f3e3b}{main\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays the main menu and handles user input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that serves as the interactive menu for the user. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_abf636a05130bea04b35bd46aaf907a3d}\label{class_menu_abf636a05130bea04b35bd46aaf907a3d} 
+\index{Menu@{Menu}!currently\_used\_file@{currently\_used\_file}}
+\index{currently\_used\_file@{currently\_used\_file}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{currently\_used\_file()}{currently\_used\_file()}}
+{\footnotesize\ttfamily int Menu\+::currently\+\_\+used\+\_\+file (\begin{DoxyParamCaption}\item[{string}]{file }\end{DoxyParamCaption})}
+
+
+
+Checks if a given file is currently being used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The name of the file to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating whether the file is currently used (1) or not (0). 
+\end{DoxyReturn}
+\Hypertarget{class_menu_ab3a786e6dada1c5d3f6237728b3f3e3b}\label{class_menu_ab3a786e6dada1c5d3f6237728b3f3e3b} 
+\index{Menu@{Menu}!main\_menu@{main\_menu}}
+\index{main\_menu@{main\_menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{main\_menu()}{main\_menu()}}
+{\footnotesize\ttfamily int Menu\+::main\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the main menu and handles user input. 
+
+\begin{DoxyReturn}{Returns}
+An integer representing the user\textquotesingle{}s choice. 
+\end{DoxyReturn}
+\Hypertarget{class_menu_af93a970cdfec463a8cb25ca65bf51da5}\label{class_menu_af93a970cdfec463a8cb25ca65bf51da5} 
+\index{Menu@{Menu}!run@{run}}
+\index{run@{run}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily int Menu\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the main menu and handles user input. 
+
+\begin{DoxyReturn}{Returns}
+An integer representing the user\textquotesingle{}s choice. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Menu.\+h\item 
+Menu.\+cpp\end{DoxyCompactItemize}
