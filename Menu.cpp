@@ -137,4 +137,3 @@ int Menu::currently_used_file(string file){
     if(file == graph.getCurrentEdgesFile() || file == graph.getCurrentVertexesFile() || !iss.is_open()) return 1;
     return 0;
 }
-
