@@ -1,6 +1,6 @@
 # Routing Algorithm for Ocean Shipping and Urban Deliveries (TSP)
 
-### Description 
+### Description
 
 [Project Description](Project2Description.pdf)
 
@@ -22,6 +22,3 @@
 <pre>                                        Selection of Starting Node Algorithm   </pre>
 &nbsp;
 ![img_2.png](/images/img_2.png)
-
-
-

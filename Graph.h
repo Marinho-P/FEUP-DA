@@ -68,7 +68,7 @@ class Graph {
 
         /**
          * @brief Executes the backtracking algorithm for the TSP.
-         * @detailscomplexity O(N!) where N is the number of vertices.
+         * @details O(N!) where N is the number of vertices.
          * @details This function applies the backtracking algorithm to find the minimum cost Hamiltonian path
          * in the graph. It starts from the initial vertex and explores all possible paths recursively,
          * keeping track of the visited vertices and current path cost. Once all paths are explored,
