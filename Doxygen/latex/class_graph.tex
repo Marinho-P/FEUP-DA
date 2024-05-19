@@ -1,0 +1,610 @@
+\doxysection{Graph Class Reference}
+\hypertarget{class_graph}{}\label{class_graph}\index{Graph@{Graph}}
+
+
+Class representing a graph.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_aaa58172b1ae8602834b045659efd29c8}{Graph}} (const string \&edge\+\_\+file, const string \&vertex\+\_\+file="{}"{})
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_graph}{Graph} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_a61c210a08b68a8b7c1e162662aa73f50}{read\+\_\+edges}} (const string \&edge\+\_\+file, bool comes\+With\+Nodes)
+\begin{DoxyCompactList}\small\item\em Reads edges from a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_afd3d353c13d042ac9427d1d3f544d9bc}{read\+\_\+vertexes}} (const string \&vertex\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Reads vertices from a file. \end{DoxyCompactList}\item 
+const string \& \mbox{\hyperlink{class_graph_a58398663caa62bc7b7648b787083c06c}{get\+Current\+Edges\+File}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of the current edges file. \end{DoxyCompactList}\item 
+const string \& \mbox{\hyperlink{class_graph_a456215e09af33215ebbbbc62e8e0c886}{get\+Current\+Vertexes\+File}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of the current vertices file. \end{DoxyCompactList}\item 
+\Hypertarget{class_graph_ab33ca554df8a2b71750868582a8cd461}\label{class_graph_ab33ca554df8a2b71750868582a8cd461} 
+void {\bfseries check\+\_\+edges} ()
+\begin{DoxyCompactList}\small\item\em Checks the edges of the graph. \end{DoxyCompactList}\item 
+\Hypertarget{class_graph_a276806a7204c5eb3a01e66ca518799af}\label{class_graph_a276806a7204c5eb3a01e66ca518799af} 
+void {\bfseries check\+\_\+vertexes} ()
+\begin{DoxyCompactList}\small\item\em Checks the vertices of the graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a4eb3635282ad54bc779ee0cb210d9866}{backtracking}} ()
+\begin{DoxyCompactList}\small\item\em Executes the backtracking algorithm for the TSP. @detailscomplexity O(N!) where N is the number of vertices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a9a5f23e1e71bd39b33e809c98bd375b3}{recursive\+Backtracking}} (int current\+Vertex\+Id, bool \texorpdfstring{$\ast$}{*}visited, vector$<$ int $>$ \&current\+Path, vector$<$ int $>$ \&final\+Path, int n\+Vertexes, int unique\+Vertexes, double current\+Cost, double \&final\+Cost)
+\begin{DoxyCompactList}\small\item\em Recursively explores all possible paths using backtracking to find the minimum cost Hamiltonian path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a3e2b8d8be9932342868259db53c7042b}{triangular\+Approximation}} ()
+\begin{DoxyCompactList}\small\item\em Executes the triangular approximation algorithm to find an approximate solution to the TSP. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \mbox{\hyperlink{class_graph_ae38d4ce342534d737d3e6662a33f4209}{get\+Prim\+MST}} (int starting\+Node=0)
+\begin{DoxyCompactList}\small\item\em Gets the Minimum Spanning Tree (MST) using Prim\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a90c3fc4dcc9dcca01ca015e6f3a586c1}{get\+Distance}} (int v, int w)
+\begin{DoxyCompactList}\small\item\em Gets the distance between two vertices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_aa1da3211cc4dca868016a3d47fda91a5}{preorder\+Walk\+MST}} (const vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \&mst, int current\+Vertex, bool \texorpdfstring{$\ast$}{*}visited, vector$<$ int $>$ \&tour)
+\begin{DoxyCompactList}\small\item\em Preorder walk of the MST. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_aa825a18d1a69be2b16855a7ab9eb8210}{get\+Minimum\+Cost}} (vector$<$ int $>$ path)
+\begin{DoxyCompactList}\small\item\em Gets the minimum cost of a given path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_abbe6dc2b6372ccac2b8a3606917943df}{Christofides}} ()
+\begin{DoxyCompactList}\small\item\em Executes the Christofides algorithm for the TSP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a428010a68b516490eaf7af3bbb6db35e}{perfect\+Matching}} (vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \&mst, vector$<$ pair$<$ int, int $>$ $>$ \&matching\+Vertexes)
+\begin{DoxyCompactList}\small\item\em Finds a perfect matching in the MST. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_af93b5f69ccb59266b7fac2724798ed30}{euler\+\_\+tour}} (vector$<$ pair$<$ int, int $>$ $>$ \&matching\+Vertexes, vector$<$ int $>$ \&path, vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \&mst, int starting\+Node)
+\begin{DoxyCompactList}\small\item\em Finds an Euler tour in the graph. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{class_graph_aa3167c0ae46b0cf1ace51112756a8b3a}{make\+\_\+hamiltonian}} (vector$<$ int $>$ \&path)
+\begin{DoxyCompactList}\small\item\em Makes a Hamiltonian path from a given path. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ double $>$ $>$ \mbox{\hyperlink{class_graph_a1fd7845b75d36012e5374484a7712b40}{create\+Reduced\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Creates a reduced distance matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a16e1ebd89e4c4c27371a3eb2af3ecd28}{two\+Opt\+Search\+Optimization}} (vector$<$ int $>$ \&tour, const vector$<$ vector$<$ double $>$ $>$ \&distance\+Matrix)
+\begin{DoxyCompactList}\small\item\em Optimizes a tour using the 2-\/opt algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a41cb7e7a77fd2547280babb0c7eb5947}{dfs}} (int vertex, vector$<$ bool $>$ \&visited, vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \&mst, vector$<$ int $>$ \&path)
+\begin{DoxyCompactList}\small\item\em Depth-\/\+First Search (DFS) for the Euler tour. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a45ed2cafdaabf6f68d7831eba0e02446}{is\+Circular\+Path}} (vector$<$ int $>$ \&path, int starting\+Node=0)
+\begin{DoxyCompactList}\small\item\em Checks if a given path is circular. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a1b80e31d10e9bdf44e800b7b787deccd}{is\+Feasible\+Path}} (int starting\+Node, const vector$<$ vector$<$ double $>$ $>$ \&distance\+Matrix)
+\begin{DoxyCompactList}\small\item\em Checks if a given path is feasible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a6f5c22400cad66599f5d70585ce095dc}{calculate\+Path\+Cost\+Without\+Coordinates}} (vector$<$ int $>$ path, double \&minimum\+Cost)
+\begin{DoxyCompactList}\small\item\em Calculates the cost of a path without using coordinates. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a77a8fe4d545c7df1dba1c92780440825}{check\+Distance}} (int v, int w)
+\begin{DoxyCompactList}\small\item\em Checks the distance between two vertices. \end{DoxyCompactList}\item 
+\Hypertarget{class_graph_afd48975365fd8283ddc32d2e50a3bf5e}\label{class_graph_afd48975365fd8283ddc32d2e50a3bf5e} 
+void {\bfseries check\+Current\+Files} ()
+\begin{DoxyCompactList}\small\item\em Checks the current files being used. \end{DoxyCompactList}\item 
+\Hypertarget{class_graph_a709a646b1458cebe3fcffb2bc9ecc7ea}\label{class_graph_a709a646b1458cebe3fcffb2bc9ecc7ea} 
+void {\bfseries run\+All\+Algorithms} ()
+\begin{DoxyCompactList}\small\item\em Runs all algorithms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a14da4fa8365233c370f7588e143399e3}{optimized\+Triangular\+Approximation}} ()
+\begin{DoxyCompactList}\small\item\em Executes an optimized triangular approximation algorithm for the Traveling Salesman Problem (TSP). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a0d8d559a70a6fe05bee140347746f5e2}{create\+Clusters}} (double dist, vector$<$ vector$<$ double $>$ $>$ distance\+Matrix, vector$<$ vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ $>$ \&new\+Adj, vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ \&anchors)
+\begin{DoxyCompactList}\small\item\em Creates clusters of vertices based on a distance threshold. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a662aaddf0424b5206a08e5f1a1067581}{preorder\+Walk\+Opt}} (vector$<$ int $>$ \&path, bool \texorpdfstring{$\ast$}{*}visited, \mbox{\hyperlink{class_vertex}{Vertex}} \&start, vector$<$ vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ $>$ \&mst\+Adj)
+\begin{DoxyCompactList}\small\item\em Performs a pre-\/order traversal of the Minimum Spanning Tree (MST). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_graph_abc3c921519354f9fde81f0e01a84b81c}{get\+Prim\+MSTopt}} (vector$<$ pair$<$ int, float $>$ $>$ \&parent, bool \texorpdfstring{$\ast$}{*}visited, \mbox{\hyperlink{class_vertex}{Vertex}} \&start, vector$<$ vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ $>$ \&cluster\+Adj, vector$<$ vector$<$ double $>$ $>$ \&distance\+Matrix, vector$<$ vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ $>$ \&mst\+Adj)
+\begin{DoxyCompactList}\small\item\em Generates the Minimum Spanning Tree (MST) using an optimized Prim\textquotesingle{}s algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a graph. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_graph_aaa58172b1ae8602834b045659efd29c8}\label{class_graph_aaa58172b1ae8602834b045659efd29c8} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{const string \&}]{edge\+\_\+file,  }\item[{const string \&}]{vertex\+\_\+file = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_graph}{Graph} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge\+\_\+file} & Name of the file containing the edges. \\
+\hline
+{\em vertex\+\_\+file} & Name of the file containing the vertices (optional). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graph_a4eb3635282ad54bc779ee0cb210d9866}\label{class_graph_a4eb3635282ad54bc779ee0cb210d9866} 
+\index{Graph@{Graph}!backtracking@{backtracking}}
+\index{backtracking@{backtracking}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{backtracking()}{backtracking()}}
+{\footnotesize\ttfamily void Graph\+::backtracking (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Executes the backtracking algorithm for the TSP. @detailscomplexity O(N!) where N is the number of vertices. 
+
+This function applies the backtracking algorithm to find the minimum cost Hamiltonian path in the graph. It starts from the initial vertex and explores all possible paths recursively, keeping track of the visited vertices and current path cost. Once all paths are explored, it selects the path with the minimum cost as the final solution. \begin{DoxyNote}{Note}
+If the number of vertices exceeds 20, the function prints a message indicating that the execution is not reasonable due to computational complexity. 
+\end{DoxyNote}
+\Hypertarget{class_graph_a6f5c22400cad66599f5d70585ce095dc}\label{class_graph_a6f5c22400cad66599f5d70585ce095dc} 
+\index{Graph@{Graph}!calculatePathCostWithoutCoordinates@{calculatePathCostWithoutCoordinates}}
+\index{calculatePathCostWithoutCoordinates@{calculatePathCostWithoutCoordinates}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{calculatePathCostWithoutCoordinates()}{calculatePathCostWithoutCoordinates()}}
+{\footnotesize\ttfamily bool Graph\+::calculate\+Path\+Cost\+Without\+Coordinates (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{path,  }\item[{double \&}]{minimum\+Cost }\end{DoxyParamCaption})}
+
+
+
+Calculates the cost of a path without using coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector representing the path. \\
+\hline
+{\em minimum\+Cost} & Reference to the variable storing the minimum cost. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success, false otherwise.
+\end{DoxyReturn}
+O(\+N) where N is the number of vertices in the path. \Hypertarget{class_graph_a77a8fe4d545c7df1dba1c92780440825}\label{class_graph_a77a8fe4d545c7df1dba1c92780440825} 
+\index{Graph@{Graph}!checkDistance@{checkDistance}}
+\index{checkDistance@{checkDistance}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{checkDistance()}{checkDistance()}}
+{\footnotesize\ttfamily double Graph\+::check\+Distance (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{int}]{w }\end{DoxyParamCaption})}
+
+
+
+Checks the distance between two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & ID of the first vertex. \\
+\hline
+{\em w} & ID of the second vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance between the vertices.
+\end{DoxyReturn}
+O(\+N) where N is the number of vertices. \Hypertarget{class_graph_abbe6dc2b6372ccac2b8a3606917943df}\label{class_graph_abbe6dc2b6372ccac2b8a3606917943df} 
+\index{Graph@{Graph}!Christofides@{Christofides}}
+\index{Christofides@{Christofides}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Christofides()}{Christofides()}}
+{\footnotesize\ttfamily void Graph\+::\+Christofides (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Executes the Christofides algorithm for the TSP. 
+
+O(\+N\texorpdfstring{$^\wedge$}{\string^}3) where N is the number of vertices.
+
+This function implements the Christofides algorithm for solving the TSP, which provides a solution that is at most 1.\+5 times the optimal solution. It involves the following steps\+:
+\begin{DoxyEnumerate}
+\item Prompts the user to select a starting node.
+\item Constructs a Minimum Spanning Tree (MST) starting from the selected node.
+\item Finds a perfect matching for the MST.
+\item Combines the MST and the perfect matching to form an Eulerian tour.
+\item Converts the Eulerian tour into a Hamiltonian path by removing repeated nodes.
+\item Optimizes the Hamiltonian path using the 2-\/opt algorithm.
+\item Validates and calculates the cost of the final TSP path.
+\item Outputs the path, the minimum cost, and the execution time. 
+\end{DoxyEnumerate}\Hypertarget{class_graph_a0d8d559a70a6fe05bee140347746f5e2}\label{class_graph_a0d8d559a70a6fe05bee140347746f5e2} 
+\index{Graph@{Graph}!createClusters@{createClusters}}
+\index{createClusters@{createClusters}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{createClusters()}{createClusters()}}
+{\footnotesize\ttfamily void Graph\+::create\+Clusters (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{distance\+Matrix,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ $>$ \&}]{new\+Adj,  }\item[{vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ \&}]{anchors }\end{DoxyParamCaption})}
+
+
+
+Creates clusters of vertices based on a distance threshold. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & Distance threshold for clustering. \\
+\hline
+{\em distance\+Matrix} & Vector of vectors of doubles representing the distance matrix between vertices. \\
+\hline
+{\em new\+Adj} & Vector of vectors of vertices representing the new adjacency list of the new clusters. \\
+\hline
+{\em anchors} & Vector of vertices that will act as cluster anchors.\\
+\hline
+\end{DoxyParams}
+O(\+V\texorpdfstring{$^\wedge$}{\string^}2) where V is the number of vertices.
+
+This function iterates through all vertices, assigning each vertex to an anchor if the distance is below the threshold. If a vertex cannot be assigned to any existing anchor, it becomes a new anchor. Each cluster is stored in the {\ttfamily clusters} vector, and the adjacency list for the new clusters is updated accordingly. \Hypertarget{class_graph_a1fd7845b75d36012e5374484a7712b40}\label{class_graph_a1fd7845b75d36012e5374484a7712b40} 
+\index{Graph@{Graph}!createReducedMatrix@{createReducedMatrix}}
+\index{createReducedMatrix@{createReducedMatrix}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{createReducedMatrix()}{createReducedMatrix()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ double $>$ $>$ Graph\+::create\+Reduced\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a reduced distance matrix. 
+
+\begin{DoxyReturn}{Returns}
+Vector of vectors of doubles representing the reduced distance matrix.
+\end{DoxyReturn}
+O(\+N\texorpdfstring{$^\wedge$}{\string^}2) where N is the number of vertices. \Hypertarget{class_graph_a41cb7e7a77fd2547280babb0c7eb5947}\label{class_graph_a41cb7e7a77fd2547280babb0c7eb5947} 
+\index{Graph@{Graph}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}}
+{\footnotesize\ttfamily void Graph\+::dfs (\begin{DoxyParamCaption}\item[{int}]{vertex,  }\item[{vector$<$ bool $>$ \&}]{visited,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \&}]{mst,  }\item[{vector$<$ int $>$ \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Depth-\/\+First Search (DFS) for the Euler tour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & Current vertex in the DFS. \\
+\hline
+{\em visited} & Vector indicating visited vertices. \\
+\hline
+{\em mst} & Vector of vectors of edges representing the MST. \\
+\hline
+{\em path} & Vector representing the path.\\
+\hline
+\end{DoxyParams}
+O(V + E) where V is the number of vertices and E is the number of edges. \Hypertarget{class_graph_af93b5f69ccb59266b7fac2724798ed30}\label{class_graph_af93b5f69ccb59266b7fac2724798ed30} 
+\index{Graph@{Graph}!euler\_tour@{euler\_tour}}
+\index{euler\_tour@{euler\_tour}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{euler\_tour()}{euler\_tour()}}
+{\footnotesize\ttfamily void Graph\+::euler\+\_\+tour (\begin{DoxyParamCaption}\item[{vector$<$ pair$<$ int, int $>$ $>$ \&}]{matching\+Vertexes,  }\item[{vector$<$ int $>$ \&}]{path,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \&}]{mst,  }\item[{int}]{starting\+Node }\end{DoxyParamCaption})}
+
+
+
+Finds an Euler tour in the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matching\+Vertexes} & Vector of pairs representing the matching vertices. \\
+\hline
+{\em path} & Vector representing the path. \\
+\hline
+{\em mst} & Vector of vectors of edges representing the MST. \\
+\hline
+{\em starting\+Node} & Starting node for the Euler tour.\\
+\hline
+\end{DoxyParams}
+O(V + E) where V is the number of vertices and E is the number of edges. \Hypertarget{class_graph_a58398663caa62bc7b7648b787083c06c}\label{class_graph_a58398663caa62bc7b7648b787083c06c} 
+\index{Graph@{Graph}!getCurrentEdgesFile@{getCurrentEdgesFile}}
+\index{getCurrentEdgesFile@{getCurrentEdgesFile}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getCurrentEdgesFile()}{getCurrentEdgesFile()}}
+{\footnotesize\ttfamily const string \& Graph\+::get\+Current\+Edges\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the name of the current edges file. 
+
+\begin{DoxyReturn}{Returns}
+Constant reference to the string containing the name of the edges file. 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a456215e09af33215ebbbbc62e8e0c886}\label{class_graph_a456215e09af33215ebbbbc62e8e0c886} 
+\index{Graph@{Graph}!getCurrentVertexesFile@{getCurrentVertexesFile}}
+\index{getCurrentVertexesFile@{getCurrentVertexesFile}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getCurrentVertexesFile()}{getCurrentVertexesFile()}}
+{\footnotesize\ttfamily const string \& Graph\+::get\+Current\+Vertexes\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the name of the current vertices file. 
+
+\begin{DoxyReturn}{Returns}
+Constant reference to the string containing the name of the vertices file. 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a90c3fc4dcc9dcca01ca015e6f3a586c1}\label{class_graph_a90c3fc4dcc9dcca01ca015e6f3a586c1} 
+\index{Graph@{Graph}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getDistance()}{getDistance()}}
+{\footnotesize\ttfamily double Graph\+::get\+Distance (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{int}]{w }\end{DoxyParamCaption})}
+
+
+
+Gets the distance between two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & id of the first vertex. \\
+\hline
+{\em w} & id of the second vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance between the vertices. 
+\end{DoxyReturn}
+\Hypertarget{class_graph_aa825a18d1a69be2b16855a7ab9eb8210}\label{class_graph_aa825a18d1a69be2b16855a7ab9eb8210} 
+\index{Graph@{Graph}!getMinimumCost@{getMinimumCost}}
+\index{getMinimumCost@{getMinimumCost}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getMinimumCost()}{getMinimumCost()}}
+{\footnotesize\ttfamily double Graph\+::get\+Minimum\+Cost (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{path }\end{DoxyParamCaption})}
+
+
+
+Gets the minimum cost of a given path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector representing the path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Minimum cost of the path.
+\end{DoxyReturn}
+O(\+N) where N is the number of vertices in the path. \Hypertarget{class_graph_ae38d4ce342534d737d3e6662a33f4209}\label{class_graph_ae38d4ce342534d737d3e6662a33f4209} 
+\index{Graph@{Graph}!getPrimMST@{getPrimMST}}
+\index{getPrimMST@{getPrimMST}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getPrimMST()}{getPrimMST()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ Graph\+::get\+Prim\+MST (\begin{DoxyParamCaption}\item[{int}]{starting\+Node = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Gets the Minimum Spanning Tree (MST) using Prim\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em starting\+Node} & Starting node for Prim\textquotesingle{}s algorithm (default is 0). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of vectors of edges representing the MST.
+\end{DoxyReturn}
+O((V + E) log V) where V is the number of vertices and E is the number of edges.
+
+This function constructs a Minimum Spanning Tree (MST) using Prim\textquotesingle{}s algorithm starting from the specified node. It returns the MST represented as a vector of vectors of Edges, where each inner vector contains the edges incident to a vertex in the MST. \Hypertarget{class_graph_abc3c921519354f9fde81f0e01a84b81c}\label{class_graph_abc3c921519354f9fde81f0e01a84b81c} 
+\index{Graph@{Graph}!getPrimMSTopt@{getPrimMSTopt}}
+\index{getPrimMSTopt@{getPrimMSTopt}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getPrimMSTopt()}{getPrimMSTopt()}}
+{\footnotesize\ttfamily void Graph\+::get\+Prim\+MSTopt (\begin{DoxyParamCaption}\item[{vector$<$ pair$<$ int, float $>$ $>$ \&}]{parent,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{visited,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} \&}]{start,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ $>$ \&}]{cluster\+Adj,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{distance\+Matrix,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ $>$ \&}]{mst\+Adj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates the Minimum Spanning Tree (MST) using an optimized Prim\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Vector of pairs where each pair contains the parent vertex ID and the edge weight to the child vertex. \\
+\hline
+{\em visited} & Array of booleans indicating whether each vertex has been visited. \\
+\hline
+{\em start} & The starting vertex for Prim\textquotesingle{}s algorithm. \\
+\hline
+{\em cluster\+Adj} & Vector of vectors of vertices representing the adjacency list of the clusters. \\
+\hline
+{\em distance\+Matrix} & Vector of vectors of doubles representing the distance matrix between vertices. \\
+\hline
+{\em mst\+Adj} & Vector of vectors of vertices representing the MST adjacency list.\\
+\hline
+\end{DoxyParams}
+O(\+E log V) where E is the number of edges and V is the number of vertices.
+
+This function uses a priority queue to efficiently find the next vertex to add to the MST. Each vertex is connected to its parent with the minimum edge weight, and the adjacency list for the MST is updated accordingly. The {\ttfamily visited} array ensures that each vertex is only processed once. \Hypertarget{class_graph_a45ed2cafdaabf6f68d7831eba0e02446}\label{class_graph_a45ed2cafdaabf6f68d7831eba0e02446} 
+\index{Graph@{Graph}!isCircularPath@{isCircularPath}}
+\index{isCircularPath@{isCircularPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{isCircularPath()}{isCircularPath()}}
+{\footnotesize\ttfamily bool Graph\+::is\+Circular\+Path (\begin{DoxyParamCaption}\item[{vector$<$ int $>$ \&}]{path,  }\item[{int}]{starting\+Node = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Checks if a given path is circular. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector representing the path. \\
+\hline
+{\em starting\+Node} & Starting node for the path (default is 0). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the path is circular, false otherwise.
+\end{DoxyReturn}
+O(\+N) where N is the number of vertices in the path. \Hypertarget{class_graph_a1b80e31d10e9bdf44e800b7b787deccd}\label{class_graph_a1b80e31d10e9bdf44e800b7b787deccd} 
+\index{Graph@{Graph}!isFeasiblePath@{isFeasiblePath}}
+\index{isFeasiblePath@{isFeasiblePath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{isFeasiblePath()}{isFeasiblePath()}}
+{\footnotesize\ttfamily bool Graph\+::is\+Feasible\+Path (\begin{DoxyParamCaption}\item[{int}]{starting\+Node,  }\item[{const vector$<$ vector$<$ double $>$ $>$ \&}]{distance\+Matrix }\end{DoxyParamCaption})}
+
+
+
+Checks if a given path is feasible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em starting\+Node} & The node from which to start the BFS. \\
+\hline
+{\em distance\+Matrix} & A matrix representing the distances between vertices. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the path is feasible, false otherwise.
+\end{DoxyReturn}
+O(\+N\texorpdfstring{$^\wedge$}{\string^}2) where N is the number of vertices. @details\+This function performs a Breadth-\/\+First Search (BFS) to determine if all vertices in the graph are reachable from the specified starting node, thus checking if a feasible path exists that visits all vertices. \Hypertarget{class_graph_aa3167c0ae46b0cf1ace51112756a8b3a}\label{class_graph_aa3167c0ae46b0cf1ace51112756a8b3a} 
+\index{Graph@{Graph}!make\_hamiltonian@{make\_hamiltonian}}
+\index{make\_hamiltonian@{make\_hamiltonian}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{make\_hamiltonian()}{make\_hamiltonian()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Graph\+::make\+\_\+hamiltonian (\begin{DoxyParamCaption}\item[{vector$<$ int $>$ \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Makes a Hamiltonian path from a given path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector representing the path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector representing the Hamiltonian path.
+\end{DoxyReturn}
+O(\+N) where N is the number of vertices in the path. \Hypertarget{class_graph_a14da4fa8365233c370f7588e143399e3}\label{class_graph_a14da4fa8365233c370f7588e143399e3} 
+\index{Graph@{Graph}!optimizedTriangularApproximation@{optimizedTriangularApproximation}}
+\index{optimizedTriangularApproximation@{optimizedTriangularApproximation}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{optimizedTriangularApproximation()}{optimizedTriangularApproximation()}}
+{\footnotesize\ttfamily void Graph\+::optimized\+Triangular\+Approximation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Executes an optimized triangular approximation algorithm for the Traveling Salesman Problem (TSP). 
+
+This function creates a distance matrix, clusters vertices based on average edge distance, and uses Prim\textquotesingle{}s algorithm to construct a Minimum Spanning Tree (MST) for each cluster. It then performs a pre-\/order traversal of the MST to generate an approximate solution for the TSP. The path and the associated cost are outputted.
+
+The complexity is approximately O(\+V\texorpdfstring{$^\wedge$}{\string^}2) due to the distance matrix creation and MST construction. \Hypertarget{class_graph_a428010a68b516490eaf7af3bbb6db35e}\label{class_graph_a428010a68b516490eaf7af3bbb6db35e} 
+\index{Graph@{Graph}!perfectMatching@{perfectMatching}}
+\index{perfectMatching@{perfectMatching}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{perfectMatching()}{perfectMatching()}}
+{\footnotesize\ttfamily void Graph\+::perfect\+Matching (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \&}]{mst,  }\item[{vector$<$ pair$<$ int, int $>$ $>$ \&}]{matching\+Vertexes }\end{DoxyParamCaption})}
+
+
+
+Finds a perfect matching in the MST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mst} & Vector of vectors of edges representing the MST. \\
+\hline
+{\em matching\+Vertexes} & Vector of pairs representing the matching vertices.\\
+\hline
+\end{DoxyParams}
+O(\+N\texorpdfstring{$^\wedge$}{\string^}2) where N is the number of vertices.
+
+This function identifies all vertices in the MST that have an odd degree and finds a perfect matching for them. It does this by pairing each unvisited odd vertex with its closest unvisited neighbor. \Hypertarget{class_graph_aa1da3211cc4dca868016a3d47fda91a5}\label{class_graph_aa1da3211cc4dca868016a3d47fda91a5} 
+\index{Graph@{Graph}!preorderWalkMST@{preorderWalkMST}}
+\index{preorderWalkMST@{preorderWalkMST}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{preorderWalkMST()}{preorderWalkMST()}}
+{\footnotesize\ttfamily void Graph\+::preorder\+Walk\+MST (\begin{DoxyParamCaption}\item[{const vector$<$ vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ $>$ \&}]{mst,  }\item[{int}]{current\+Vertex,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{visited,  }\item[{vector$<$ int $>$ \&}]{tour }\end{DoxyParamCaption})}
+
+
+
+Preorder walk of the MST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mst} & Vector of vectors of edges representing the MST. \\
+\hline
+{\em current\+Vertex} & Current vertex in the walk. \\
+\hline
+{\em visited} & Array indicating visited vertices. \\
+\hline
+{\em tour} & Vector representing the tour.\\
+\hline
+\end{DoxyParams}
+O(\+N) where N is the number of vertices. \Hypertarget{class_graph_a662aaddf0424b5206a08e5f1a1067581}\label{class_graph_a662aaddf0424b5206a08e5f1a1067581} 
+\index{Graph@{Graph}!preorderWalkOpt@{preorderWalkOpt}}
+\index{preorderWalkOpt@{preorderWalkOpt}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{preorderWalkOpt()}{preorderWalkOpt()}}
+{\footnotesize\ttfamily void Graph\+::preorder\+Walk\+Opt (\begin{DoxyParamCaption}\item[{vector$<$ int $>$ \&}]{path,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{visited,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} \&}]{start,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $>$ $>$ \&}]{mst\+Adj }\end{DoxyParamCaption})}
+
+
+
+Performs a pre-\/order traversal of the Minimum Spanning Tree (MST). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector of integers where each integer represents the ID of a vertex in the traversal path. \\
+\hline
+{\em visited} & Array of booleans indicating whether each vertex has been visited. \\
+\hline
+{\em start} & The starting vertex for the pre-\/order traversal. \\
+\hline
+{\em mst\+Adj} & Vector of vectors of vertices representing the adjacency list of the MST.\\
+\hline
+\end{DoxyParams}
+O(\+N) where N is the number of vertices.
+
+This function recursively visits each vertex in a pre-\/order manner, starting from the given start vertex. It marks each visited vertex and adds it to the traversal path. The traversal continues to all adjacent vertices that have not been visited yet. \Hypertarget{class_graph_a61c210a08b68a8b7c1e162662aa73f50}\label{class_graph_a61c210a08b68a8b7c1e162662aa73f50} 
+\index{Graph@{Graph}!read\_edges@{read\_edges}}
+\index{read\_edges@{read\_edges}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{read\_edges()}{read\_edges()}}
+{\footnotesize\ttfamily int Graph\+::read\+\_\+edges (\begin{DoxyParamCaption}\item[{const string \&}]{edge\+\_\+file,  }\item[{bool}]{comes\+With\+Nodes }\end{DoxyParamCaption})}
+
+
+
+Reads edges from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge\+\_\+file} & Name of the file containing the edges. \\
+\hline
+{\em comes\+With\+Nodes} & Boolean indicating if the file contains node information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure.
+\end{DoxyReturn}
+O(\texorpdfstring{$\vert$}{|}\+E\texorpdfstring{$\vert$}{|}) where \texorpdfstring{$\vert$}{|}\+E\texorpdfstring{$\vert$}{|} is the number of edges in the file. \Hypertarget{class_graph_afd3d353c13d042ac9427d1d3f544d9bc}\label{class_graph_afd3d353c13d042ac9427d1d3f544d9bc} 
+\index{Graph@{Graph}!read\_vertexes@{read\_vertexes}}
+\index{read\_vertexes@{read\_vertexes}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{read\_vertexes()}{read\_vertexes()}}
+{\footnotesize\ttfamily int Graph\+::read\+\_\+vertexes (\begin{DoxyParamCaption}\item[{const string \&}]{vertex\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Reads vertices from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+\_\+file} & Name of the file containing the vertices. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure.
+\end{DoxyReturn}
+O(\texorpdfstring{$\vert$}{|}\+V\texorpdfstring{$\vert$}{|}) where \texorpdfstring{$\vert$}{|}\+V\texorpdfstring{$\vert$}{|} is the number of vertices in the file. \Hypertarget{class_graph_a9a5f23e1e71bd39b33e809c98bd375b3}\label{class_graph_a9a5f23e1e71bd39b33e809c98bd375b3} 
+\index{Graph@{Graph}!recursiveBacktracking@{recursiveBacktracking}}
+\index{recursiveBacktracking@{recursiveBacktracking}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{recursiveBacktracking()}{recursiveBacktracking()}}
+{\footnotesize\ttfamily void Graph\+::recursive\+Backtracking (\begin{DoxyParamCaption}\item[{int}]{current\+Vertex\+Id,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{visited,  }\item[{vector$<$ int $>$ \&}]{current\+Path,  }\item[{vector$<$ int $>$ \&}]{final\+Path,  }\item[{int}]{n\+Vertexes,  }\item[{int}]{unique\+Vertexes,  }\item[{double}]{current\+Cost,  }\item[{double \&}]{final\+Cost }\end{DoxyParamCaption})}
+
+
+
+Recursively explores all possible paths using backtracking to find the minimum cost Hamiltonian path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Vertex\+Id} & ID of the current vertex. \\
+\hline
+{\em visited} & Array indicating visited vertices. \\
+\hline
+{\em current\+Path} & Current path taken. \\
+\hline
+{\em final\+Path} & Final path found. \\
+\hline
+{\em n\+Vertexes} & Number of vertices. \\
+\hline
+{\em unique\+Vertexes} & Number of unique vertices visited. \\
+\hline
+{\em current\+Cost} & Current cost of the path. \\
+\hline
+{\em final\+Cost} & Final cost of the path.\\
+\hline
+\end{DoxyParams}
+O(N!) where N is the number of vertices.
+
+This function is called recursively to explore all possible paths starting from a given vertex. It marks each visited vertex and updates the current path and cost accordingly. If a Hamiltonian path with a lower cost than the current minimum is found, it updates the final path and cost accordingly. \Hypertarget{class_graph_a3e2b8d8be9932342868259db53c7042b}\label{class_graph_a3e2b8d8be9932342868259db53c7042b} 
+\index{Graph@{Graph}!triangularApproximation@{triangularApproximation}}
+\index{triangularApproximation@{triangularApproximation}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{triangularApproximation()}{triangularApproximation()}}
+{\footnotesize\ttfamily void Graph\+::triangular\+Approximation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Executes the triangular approximation algorithm to find an approximate solution to the TSP. 
+
+O(\+N\texorpdfstring{$^\wedge$}{\string^}2) where N is the number of vertices.
+
+This function constructs a Minimum Spanning Tree (MST) using Prim\textquotesingle{}s algorithm and performs a preorder walk on the MST to generate a tour. The resulting tour is an approximate solution to the Traveling Salesman Problem (TSP). \Hypertarget{class_graph_a16e1ebd89e4c4c27371a3eb2af3ecd28}\label{class_graph_a16e1ebd89e4c4c27371a3eb2af3ecd28} 
+\index{Graph@{Graph}!twoOptSearchOptimization@{twoOptSearchOptimization}}
+\index{twoOptSearchOptimization@{twoOptSearchOptimization}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{twoOptSearchOptimization()}{twoOptSearchOptimization()}}
+{\footnotesize\ttfamily void Graph\+::two\+Opt\+Search\+Optimization (\begin{DoxyParamCaption}\item[{vector$<$ int $>$ \&}]{tour,  }\item[{const vector$<$ vector$<$ double $>$ $>$ \&}]{distance\+Matrix }\end{DoxyParamCaption})}
+
+
+
+Optimizes a tour using the 2-\/opt algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tour} & Vector representing the tour. \\
+\hline
+{\em distance\+Matrix} & Vector of vectors of doubles representing the distance matrix. @complexity O(\+N\texorpdfstring{$^\wedge$}{\string^}2) where N is the number of vertices.\\
+\hline
+\end{DoxyParams}
+This function applies the 2-\/opt optimization technique to improve the given tour by iteratively reversing segments of the tour that reduce the total distance. The process continues until no further improvements can be made. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Graph.\+h\item 
+Graph.\+cpp\end{DoxyCompactItemize}

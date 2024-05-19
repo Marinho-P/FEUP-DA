@@ -13,36 +13,29 @@ using namespace std::chrono;
 
 
 Graph::Graph(const string &edges, const string &vertexes) {
-
     if (vertexes.empty()) {
         if (read_edges(edges, false)) exit(-1);
     } else {
         if (read_edges(edges, true)) exit(-1);
         if (read_vertexes(vertexes)) exit(-1);
     }
-
-
     current_edges_file = edges;
     current_vertexes_file = vertexes;
-
 }
 
 
-const vector<Vertex> &Graph::getVertexSet() const {
-    return vertexSet;
-}
-
-const vector<vector<Edge>> &Graph::getAdj() const {
-    return adj;
-}
 
 const string &Graph::getCurrentEdgesFile() const {
     return current_edges_file;
 }
 
+
+
 const string &Graph::getCurrentVertexesFile() const {
     return current_vertexes_file;
 }
+
+
 
 int Graph::read_edges(const string &edge_file, bool comesWithNodes) {
     ifstream file(edge_file);
@@ -101,6 +94,7 @@ int Graph::read_edges(const string &edge_file, bool comesWithNodes) {
 }
 
 
+
 int Graph::read_vertexes(const string &node_file) {
     ifstream file(node_file);
     int id;
@@ -125,6 +119,8 @@ int Graph::read_vertexes(const string &node_file) {
     return 0;
 }
 
+
+
 void Graph::check_edges() {
     cout << "Edges file being used: " << current_edges_file << endl;
     for (int i = 0; i < adj.size(); i++) {
@@ -134,6 +130,8 @@ void Graph::check_edges() {
         }
     }
 }
+
+
 
 void Graph::check_vertexes() {
     if (current_vertexes_file.empty()) {
@@ -147,6 +145,8 @@ void Graph::check_vertexes() {
     }
 }
 
+
+
 double startingNodeIsReachable(vector<Edge> vector) {
     for (auto edge: vector) {
         if (edge.getDestiny() == 0) {
@@ -155,6 +155,7 @@ double startingNodeIsReachable(vector<Edge> vector) {
     }
     return 0.0;
 }
+
 
 
 void Graph::recursiveBacktracking(int currentVertexId, bool *visited, vector<int> &currentPath, vector<int> &finalPath,
@@ -183,6 +184,8 @@ void Graph::recursiveBacktracking(int currentVertexId, bool *visited, vector<int
     }
 }
 
+
+
 double Graph::getMinimumCost(vector<int> path) {
     double minimumCost = 0;
     for (int i = 0; i < path.size() - 1; i++) {
@@ -190,6 +193,8 @@ double Graph::getMinimumCost(vector<int> path) {
     }
     return minimumCost;
 }
+
+
 
 double Graph::getDistance(int v, int w) {
     for (auto edge: adj[v]) {
@@ -199,6 +204,8 @@ double Graph::getDistance(int v, int w) {
     }
     return vertexSet[v].calculateDistanceToVertex(vertexSet[w]);
 }
+
+
 
 void Graph::backtracking() {
     int nVertexes = vertexSet.size();
@@ -232,7 +239,6 @@ void Graph::backtracking() {
     for (auto vertex: finalPath) {
         if (j == finalPath.size() - 1) {
             cout << vertex << endl;
-
         } else {
             cout << vertex << "-->";
         }
@@ -286,6 +292,8 @@ vector<vector<Edge>> Graph::getPrimMST(int startingNode) {
     return mst;
 }
 
+
+
 void Graph::preorderWalkMST(const vector<vector<Edge>> &mst, int currentVertex, bool *visited, vector<int> &tour) {
     visited[currentVertex] = true;
     tour.push_back(currentVertex);
@@ -298,6 +306,8 @@ void Graph::preorderWalkMST(const vector<vector<Edge>> &mst, int currentVertex, 
         }
     }
 }
+
+
 
 void Graph::triangularApproximation() {
 
@@ -324,13 +334,13 @@ void Graph::triangularApproximation() {
     for (auto vertex: tour) {
         if (j == tour.size() - 1) {
             cout << vertex << endl;
-
         } else {
             cout << vertex << "-->";
         }
         j++;
     }
 }
+
 
 
 void Graph::perfectMatching(vector<vector<Edge>> &mst, vector<pair<int, int>> &matchingVertexes) {
@@ -371,6 +381,8 @@ void Graph::perfectMatching(vector<vector<Edge>> &mst, vector<pair<int, int>> &m
     delete[] visited;
 }
 
+
+
 //find an euler circuit
 void Graph::euler_tour(vector<pair<int, int>> &matchingVertexes, vector<int> &path, vector<vector<Edge>> &mst,
                        int startingNode) {
@@ -382,14 +394,14 @@ void Graph::euler_tour(vector<pair<int, int>> &matchingVertexes, vector<int> &pa
         path.push_back(pairVertices.first);
         path.push_back(pairVertices.second);
     }
-
 }
+
+
 
 vector<int> Graph::make_hamiltonian(vector<int> &path) {
     //remove visited nodes from Euler tour
     unordered_set<int> uniqueVertices;
     vector<int> newPath;
-
     for (auto vertex: path) {
         if (uniqueVertices.insert(vertex).second) {
             newPath.push_back(vertex);
@@ -398,9 +410,10 @@ vector<int> Graph::make_hamiltonian(vector<int> &path) {
     return newPath;
 }
 
+
+
 vector<vector<double>> Graph::createReducedMatrix() {
     vector<vector<double>> distanceMatrix(vertexSet.size(), vector<double>(vertexSet.size(), INFINITY));
-
     for (auto vertex: vertexSet) {
         for (auto edge: adj[vertex.getId()]) {
             distanceMatrix[vertex.getId()][edge.getDestiny()] = edge.getDistance();
@@ -408,6 +421,8 @@ vector<vector<double>> Graph::createReducedMatrix() {
     }
     return distanceMatrix;
 }
+
+
 
 void Graph::twoOptSearchOptimization(vector<int> &tour, const vector<vector<double>> &distanceMatrix) {
     bool improvement = true;
@@ -439,6 +454,8 @@ void Graph::twoOptSearchOptimization(vector<int> &tour, const vector<vector<doub
     }
 }
 
+
+
 void Graph::dfs(int vertex, vector<bool> &visited, vector<vector<Edge>> &mst, vector<int> &path) {
     visited[vertex] = true; // Mark the current vertex as visited
     for (const Edge &edge: mst[vertex]) {
@@ -450,6 +467,8 @@ void Graph::dfs(int vertex, vector<bool> &visited, vector<vector<Edge>> &mst, ve
         }
     }
 }
+
+
 
 bool Graph::isFeasiblePath(int startingNode, const vector<vector<double>> &distanceMatrix) {
     vector<bool> visited(vertexSet.size(), false); // Initialize visited array
@@ -473,10 +492,11 @@ bool Graph::isFeasiblePath(int startingNode, const vector<vector<double>> &dista
             }
         }
     }
-
     // Check if all nodes were visited, indicating a path back to the starting node
     return all_of(visited.begin(), visited.end(), [](bool v) { return v; });
 }
+
+
 
 void Graph::Christofides() {
     int startingNode;
@@ -513,7 +533,6 @@ void Graph::Christofides() {
     //reverse the order of nodes between pairs of their edges
     twoOptSearchOptimization(finalPath, distMatrix);
 
-
     auto finishPoint = high_resolution_clock::now();
 
     auto duration_ = duration_cast<duration<double>>(finishPoint - startingPoint);
@@ -530,7 +549,6 @@ void Graph::Christofides() {
         cout << "There is no available path" << endl;
         return;
     }
-
     cout << "-- Christofides Algorithm complete --" << endl;
     cout << "Elapsed time: " << duration_.count() << " seconds" << endl;
     cout << "Minimum cost to travel: " << finalCost << endl;
@@ -539,13 +557,14 @@ void Graph::Christofides() {
     for (auto vertex: finalPath) {
         if (j == finalPath.size() - 1) {
             cout << vertex << endl;
-
         } else {
             cout << vertex << "-->";
         }
         j++;
     }
 }
+
+
 
 double Graph::checkDistance(int v, int w) {
     for (auto edge: adj[v]) {
@@ -555,6 +574,8 @@ double Graph::checkDistance(int v, int w) {
     }
     return -1.0;
 }
+
+
 
 void Graph::optimizedTriangularApproximation() {
     auto startTime = high_resolution_clock::now();
@@ -581,7 +602,6 @@ void Graph::optimizedTriangularApproximation() {
     createClusters(avgDist, distanceMatrix, newAdj, anchors);
     vector<vector<Vertex>> mstAdj(vertexSet.size(), vector<Vertex>()); // mst adjacency matrix
     // prim setup
-
 
     for (Vertex &anchor: anchors) {
         getPrimMSTopt( visited, anchor, newAdj, distanceMatrix, mstAdj); // fill in adjacency matrix
@@ -613,19 +633,16 @@ void Graph::optimizedTriangularApproximation() {
     for (int i = 0; i < path.size(); i++) {
         if (i == path.size() - 1) {
             cout << path[i] << endl;
-
         } else {
             cout << path[i] << "-->";
             finalCost += distanceMatrix[path[i]][path[i + 1]];
         }
-
     }
     cout << "Minimum cost to travel: " << getMinimumCost(path) << endl;
-
     delete[] visited;
-
-
 }
+
+
 
 bool Graph::calculatePathCostWithoutCoordinates(vector<int> path, double &minimumCost) {
     for (int i = 0; i < path.size() - 1; i++) {
@@ -637,18 +654,18 @@ bool Graph::calculatePathCostWithoutCoordinates(vector<int> path, double &minimu
 }
 
 
+
 bool Graph::isCircularPath(vector<int> &path, int startingNode) {
     if (path.size() != vertexSet.size()) {
         return false;
     }
-
     if (path.front() != startingNode || path.back() != startingNode) {
         return false; // Path doesn't start and end at the specified node
     }
-
-
     return true;
 }
+
+
 
 void Graph::checkCurrentFiles() {
     cout << "Current file(s) being used: " << current_edges_file;
@@ -659,12 +676,16 @@ void Graph::checkCurrentFiles() {
     }
 }
 
+
+
 void Graph::runAllAlgorithms() {
     cout << "---Executing all algorithms---" << endl;
     backtracking();
     triangularApproximation();
     Christofides();
 }
+
+
 
 void Graph::createClusters(double dist, vector<vector<double>> distanceMatrix, vector<vector<Vertex>> &newAdj,
                            vector<Vertex> &anchors) {
@@ -694,19 +715,19 @@ void Graph::createClusters(double dist, vector<vector<double>> distanceMatrix, v
             for (int j = 0; j < cluster_size; j++) {
                 newAdj[vertex.getId()].push_back(clusters[bestAnchor][j]);
                 newAdj[clusters[bestAnchor][j].getId()].push_back(vertex);
-
             }
             clusters[bestAnchor].push_back(vertex);
         }
     }
-
 }
+
 
 
 void
 Graph::getPrimMSTopt( bool *visited, Vertex &start, vector<vector<Vertex>> &clusterAdj,
                      vector<vector<double>> &distanceMatrix,
                      vector<vector<Vertex>> &mstAdj) {
+
     MutablePriorityQueue<Vertex> q;
 
     visited[start.getId()] = true;
@@ -726,10 +747,8 @@ Graph::getPrimMSTopt( bool *visited, Vertex &start, vector<vector<Vertex>> &clus
                 }
             }
         }
-
     }
 }
-
 
 
 
