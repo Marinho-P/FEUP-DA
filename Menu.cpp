@@ -13,7 +13,7 @@ int Menu::main_menu(){
                 "[1] Backtracking Algorithm                                     |\n"
                 "[2] Triangular Approximation                                   |\n"
                 "[3] Christofides Algorithm                                     |\n"
-                "[4] //TODO                                                     |\n"
+                "[4] Clustering Algorithm                                       |\n"
                 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|\n"
                 "|                       More ops                               |\n"
                 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|\n"

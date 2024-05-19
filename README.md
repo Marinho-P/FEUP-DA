@@ -1,6 +1,6 @@
 # Routing Algorithm for Ocean Shipping and Urban Deliveries (TSP)
 
-### Description 
+### Description
 
 [Project Description](Project2Description.pdf)
 
@@ -12,16 +12,13 @@
 
 ### Graphic Results:
 
-<pre>                           Minimum Cost Comparison      </pre>
+<pre>                                          Minimum Cost Comparison      </pre>
 &nbsp;
-![img.png](images/img.png)
-<pre>                    Execution Time Comparison in Seconds </pre>
+![img.png](/images/img.png)
+<pre>                                      Execution Time Comparison in Seconds </pre>
 &nbsp;
-![img_1.png](images/img_1.png)
+![img_1.png](/images/img_1.png)
 
-<pre>                    Selection of Starting Node Algorithm   </pre>
+<pre>                                        Selection of Starting Node Algorithm   </pre>
 &nbsp;
-![img_2.png](images/img_2.png)
-
-
-
+![img_2.png](/images/img_2.png)

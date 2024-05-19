@@ -284,7 +284,6 @@ class Graph {
 
         /**
          * @brief Generates the Minimum Spanning Tree (MST) using an optimized Prim's algorithm.
-         * @param parent Vector of pairs where each pair contains the parent vertex ID and the edge weight to the child vertex.
          * @param visited Array of booleans indicating whether each vertex has been visited.
          * @param start The starting vertex for Prim's algorithm.
          * @param clusterAdj Vector of vectors of vertices representing the adjacency list of the clusters.
@@ -296,8 +295,9 @@ class Graph {
          * for the MST is updated accordingly. The `visited` array ensures that each vertex is only
          * processed once.
          */
-        static void getPrimMSTopt(vector<pair<int,float>>& parent,bool * visited, Vertex &start, vector<vector<Vertex>>& clusterAdj,
+        static void getPrimMSTopt(bool * visited, Vertex &start, vector<vector<Vertex>>& clusterAdj,
                                   vector<vector<double>>& distanceMatrix, vector<vector<Vertex>> &mstAdj);
+
 
         /**
         * @brief Performs a pre-order traversal of the Minimum Spanning Tree (MST).
@@ -311,6 +311,7 @@ class Graph {
         * vertices that have not been visited yet.
         */
         void preorderWalkOpt(vector<int>& path,bool* visited, Vertex& start, vector<vector<Vertex>>& mstAdj);
+
 };
 
 #endif
