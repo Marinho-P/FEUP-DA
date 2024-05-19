@@ -572,7 +572,6 @@ void Graph::optimizedTriangularApproximation() {
     }
     avgDist /= nEdges; // the cluster radius is the avg dist
     vector<vector<Vertex>> newAdj(vertexSet.size(), vector<Vertex>()); // cluster adjacency matrix
-    vector<pair<int, float>> parent(vertexSet.size(), {-1, 0.0});
     bool *visited = new bool[vertexSet.size()];
     for (int i = 0; i < vertexSet.size(); ++i) {
         visited[i] = false;
@@ -585,7 +584,7 @@ void Graph::optimizedTriangularApproximation() {
 
 
     for (Vertex &anchor: anchors) {
-        getPrimMSTopt(parent, visited, anchor, newAdj, distanceMatrix, mstAdj); // fill in adjacency matrix
+        getPrimMSTopt( visited, anchor, newAdj, distanceMatrix, mstAdj); // fill in adjacency matrix
     }
     fill(visited, visited + vertexSet.size(), false);
     bool allVisited = false;
@@ -705,7 +704,7 @@ void Graph::createClusters(double dist, vector<vector<double>> distanceMatrix, v
 
 
 void
-Graph::getPrimMSTopt(vector<pair<int, float>> &parent, bool *visited, Vertex &start, vector<vector<Vertex>> &clusterAdj,
+Graph::getPrimMSTopt( bool *visited, Vertex &start, vector<vector<Vertex>> &clusterAdj,
                      vector<vector<double>> &distanceMatrix,
                      vector<vector<Vertex>> &mstAdj) {
     MutablePriorityQueue<Vertex> q;
@@ -722,7 +721,6 @@ Graph::getPrimMSTopt(vector<pair<int, float>> &parent, bool *visited, Vertex &st
                 q.insert(&next);
                 if (distanceMatrix[vertex->getId()][next.getId()] < next.getDist()) {
                     next.setDist(distanceMatrix[vertex->getId()][next.getId()]);
-                    parent[next.getId()] = {vertex->getId(), next.getDist()};
                     mstAdj[vertex->getId()].push_back(next);
                     q.decreaseKey(&next);
                 }

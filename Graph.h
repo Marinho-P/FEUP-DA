@@ -73,7 +73,7 @@ class Graph {
 
 
     static void
-    getPrimMSTopt(vector<pair<int,float>>& parent,bool * visited, Vertex &start, vector<vector<Vertex>>& clusterAdj, vector<vector<double>>& distanceMatrix,
+    getPrimMSTopt(bool * visited, Vertex &start, vector<vector<Vertex>>& clusterAdj, vector<vector<double>>& distanceMatrix,
                   vector<vector<Vertex>> &mstAdj);
     void preorderWalkOpt(vector<int>& path,bool* visited, Vertex& start, vector<vector<Vertex>>& mstAdj);
 };
