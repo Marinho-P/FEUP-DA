@@ -29,7 +29,7 @@ void {\bfseries check\+\_\+edges} ()
 void {\bfseries check\+\_\+vertexes} ()
 \begin{DoxyCompactList}\small\item\em Checks the vertices of the graph. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_graph_a4eb3635282ad54bc779ee0cb210d9866}{backtracking}} ()
-\begin{DoxyCompactList}\small\item\em Executes the backtracking algorithm for the TSP. @detailscomplexity O(N!) where N is the number of vertices. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Executes the backtracking algorithm for the TSP. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_graph_a9a5f23e1e71bd39b33e809c98bd375b3}{recursive\+Backtracking}} (int current\+Vertex\+Id, bool \texorpdfstring{$\ast$}{*}visited, vector$<$ int $>$ \&current\+Path, vector$<$ int $>$ \&final\+Path, int n\+Vertexes, int unique\+Vertexes, double current\+Cost, double \&final\+Cost)
 \begin{DoxyCompactList}\small\item\em Recursively explores all possible paths using backtracking to find the minimum cost Hamiltonian path. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_graph_a3e2b8d8be9932342868259db53c7042b}{triangular\+Approximation}} ()
@@ -115,7 +115,9 @@ Constructor for the \doxylink{class_graph}{Graph} class.
 
 
 
-Executes the backtracking algorithm for the TSP. @detailscomplexity O(N!) where N is the number of vertices. 
+Executes the backtracking algorithm for the TSP. 
+
+O(N!) where N is the number of vertices.
 
 This function applies the backtracking algorithm to find the minimum cost Hamiltonian path in the graph. It starts from the initial vertex and explores all possible paths recursively, keeping track of the visited vertices and current path cost. Once all paths are explored, it selects the path with the minimum cost as the final solution. \begin{DoxyNote}{Note}
 If the number of vertices exceeds 20, the function prints a message indicating that the execution is not reasonable due to computational complexity. 
@@ -606,5 +608,5 @@ This function applies the 2-\/opt optimization technique to improve the given to
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Graph.\+h\item 
-Graph.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+Asus/\+Desktop/\+Project\+DA2/Graph.\+h\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Project\+DA2/Graph.\+cpp\end{DoxyCompactItemize}
