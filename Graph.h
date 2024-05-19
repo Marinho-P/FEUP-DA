@@ -4,6 +4,7 @@
 #include "vector"
 #include <fstream>
 #include <sstream>
+#include <unordered_map>
 #include "Edge.h"
 #include "Vertex.h"
 using namespace std;
@@ -17,6 +18,7 @@ class Graph {
         vector<vector<Edge>> adj; // Adjacency list of the graph - Each vector is correlated to the index of the current node
         string current_edges_file; // Name of the file containing the edges
         string current_vertexes_file; // Name of the file containing the vertices
+        vector<unordered_map<int,Edge>> adjMap;
     public:
         /**
          * @brief Constructor for the Graph class.

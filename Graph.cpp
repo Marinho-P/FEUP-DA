@@ -90,6 +90,13 @@ int Graph::read_edges(const string &edge_file, bool comesWithNodes) {
             vertexSet.push_back(Vertex(0, 0, id));
         }
     }
+    adjMap = vector<unordered_map<int,Edge>>(vertexSet.size(),unordered_map<int,Edge>());
+    for(int i = 0; i < vertexSet.size(); i++){
+        vector<Edge> vAdj = adj[i];
+        for(Edge& edge: vAdj){
+            adjMap[i].insert({edge.getDestiny(),edge});
+        }
+    }
     return 0;
 }
 
@@ -197,10 +204,9 @@ double Graph::getMinimumCost(vector<int> path) {
 
 
 double Graph::getDistance(int v, int w) {
-    for (auto edge: adj[v]) {
-        if (edge.getDestiny() == w) {
-            return edge.getDistance();
-        }
+    auto res = adjMap[v].find(w);
+    if( res != adjMap[v].end()){
+        return res->second.getDistance();
     }
     return vertexSet[v].calculateDistanceToVertex(vertexSet[w]);
 }
@@ -578,14 +584,22 @@ double Graph::checkDistance(int v, int w) {
 
 
 void Graph::optimizedTriangularApproximation() {
+    int dist;
+    cout << "Choose a radius for the clusters: "<< endl;
+    cin >> dist;
+
+    if (cin.fail() || cin.peek() != '\n') {
+        cerr << "Invalid input" << endl;
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
+        optimizedTriangularApproximation();
+    }
     auto startTime = high_resolution_clock::now();
     vector<int> path;
     // create distance matrix
-    double avgDist = 0;
-    double nEdges = 0;
 
 
-    avgDist /= nEdges; // the cluster radius is the avg dist
+
     vector<vector<Vertex>> newAdj(vertexSet.size(), vector<Vertex>()); // cluster adjacency matrix
     bool *visited = new bool[vertexSet.size()];
     for (int i = 0; i < vertexSet.size(); ++i) {
@@ -593,27 +607,41 @@ void Graph::optimizedTriangularApproximation() {
         vertexSet[i].setDist(INFINITY);
     }
     vector<Vertex> anchors;
-    createClusters(avgDist, newAdj, anchors);
+    createClusters(dist, newAdj, anchors);
     vector<vector<Vertex>> mstAdj(vertexSet.size(), vector<Vertex>()); // mst adjacency matrix
-    // prim setup
 
+    vector<vector<Vertex>> anchorAdj(anchors.size(),vector<Vertex>());
+    vector<vector<Vertex>> anchorMstAdj(anchors.size(),vector<Vertex>());
+    vector<int> anchorPath;
+    // get anchor adjacency matrix
+    for(Vertex start: anchors){
+        for(Vertex end: anchors){
+            if(start.getId() != end.getId()){
+                anchorAdj[start.getId()].push_back(end);
+            }
+        }
+    }
+    // get order of clusters using triangular approximation
+    getPrimMSTopt(visited,anchors[0],anchorAdj,anchorMstAdj);
+    // reset visited
+    for(Vertex v: anchors){
+        visited[v.getId()] = false;
+    }
+    preorderWalkOpt(anchorPath,visited,anchors[0],anchorMstAdj);
+    // reset visited
+    for(Vertex v: anchors){
+        visited[v.getId()] = false;
+    }
+
+
+    // get MSTs for clusters
     for (Vertex &anchor: anchors) {
         getPrimMSTopt( visited, anchor, newAdj,  mstAdj); // fill in adjacency matrix
     }
+    // reset visited
     fill(visited, visited + vertexSet.size(), false);
-    bool allVisited = false;
-    Vertex startVertex = anchors[0];
-    while (!allVisited) {
-        preorderWalkOpt(path, visited, startVertex, mstAdj);
-        double bestDist = INFINITY;
-        allVisited = true;
-        for (Vertex &vertex: anchors) {
-            if (!visited[vertex.getId()] && getDistance(vertex.getId(),startVertex.getId()) < bestDist) {
-                startVertex = vertex;
-                bestDist = getDistance(vertex.getId(),startVertex.getId());
-                allVisited = false;
-            }
-        }
+    for(int anchorId: anchorPath){
+        preorderWalkOpt(path,visited,vertexSet[anchorId],mstAdj);
     }
     path.push_back(0);
     double finalCost = 0;
