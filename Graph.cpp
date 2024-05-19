@@ -90,13 +90,7 @@ int Graph::read_edges(const string &edge_file, bool comesWithNodes) {
             vertexSet.push_back(Vertex(0, 0, id));
         }
     }
-    adjMap = vector<unordered_map<int,Edge>>(vertexSet.size(),unordered_map<int,Edge>());
-    for(int i = 0; i < vertexSet.size(); i++){
-        vector<Edge> vAdj = adj[i];
-        for(Edge& edge: vAdj){
-            adjMap[i].insert({edge.getDestiny(),edge});
-        }
-    }
+
     return 0;
 }
 
@@ -204,9 +198,10 @@ double Graph::getMinimumCost(vector<int> path) {
 
 
 double Graph::getDistance(int v, int w) {
-    auto res = adjMap[v].find(w);
-    if( res != adjMap[v].end()){
-        return res->second.getDistance();
+    for (auto edge: adj[v]) {
+        if (edge.getDestiny() == w) {
+            return edge.getDistance();
+        }
     }
     return vertexSet[v].calculateDistanceToVertex(vertexSet[w]);
 }
