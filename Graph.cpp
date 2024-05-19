@@ -571,7 +571,6 @@ void Graph::optimizedTriangularApproximation() {
         }
     }
     avgDist /= nEdges; // the cluster radius is the avg dist
-    avgDist /= 2;
     vector<vector<Vertex>> newAdj(vertexSet.size(), vector<Vertex>()); // cluster adjacency matrix
     vector<pair<int, float>> parent(vertexSet.size(), {-1, 0.0});
     bool *visited = new bool[vertexSet.size()];
