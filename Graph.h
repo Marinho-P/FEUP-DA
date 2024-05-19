@@ -271,7 +271,6 @@ class Graph {
         /**
          * @brief Creates clusters of vertices based on a distance threshold.
          * @param dist Distance threshold for clustering.
-         * @param distanceMatrix Vector of vectors of doubles representing the distance matrix between vertices.
          * @param newAdj Vector of vectors of vertices representing the new adjacency list of the new clusters.
          * @param anchors Vector of vertices that will act as cluster anchors.
          * @details O(V^2) where V is the number of vertices.
@@ -280,14 +279,13 @@ class Graph {
          * existing anchor, it becomes a new anchor. Each cluster is stored in the `clusters`
          * vector, and the adjacency list for the new clusters is updated accordingly.
          */
-        void createClusters(double dist, vector<vector<double>> distanceMatrix, vector<vector<Vertex>> &newAdj, vector<Vertex> &anchors);
+        void createClusters(double dist,  vector<vector<Vertex>> &newAdj, vector<Vertex> &anchors);
 
         /**
          * @brief Generates the Minimum Spanning Tree (MST) using an optimized Prim's algorithm.
          * @param visited Array of booleans indicating whether each vertex has been visited.
          * @param start The starting vertex for Prim's algorithm.
          * @param clusterAdj Vector of vectors of vertices representing the adjacency list of the clusters.
-         * @param distanceMatrix Vector of vectors of doubles representing the distance matrix between vertices.
          * @param mstAdj Vector of vectors of vertices representing the MST adjacency list.
          * @details O(E log V) where E is the number of edges and V is the number of vertices.
          * @details This function uses a priority queue to efficiently find the next vertex to add to the MST.
@@ -295,8 +293,8 @@ class Graph {
          * for the MST is updated accordingly. The `visited` array ensures that each vertex is only
          * processed once.
          */
-        static void getPrimMSTopt(bool * visited, Vertex &start, vector<vector<Vertex>>& clusterAdj,
-                                  vector<vector<double>>& distanceMatrix, vector<vector<Vertex>> &mstAdj);
+        void getPrimMSTopt(bool * visited, Vertex &start, vector<vector<Vertex>>& clusterAdj,
+                                   vector<vector<Vertex>> &mstAdj);
 
 
         /**

@@ -581,16 +581,10 @@ void Graph::optimizedTriangularApproximation() {
     auto startTime = high_resolution_clock::now();
     vector<int> path;
     // create distance matrix
-    vector<vector<double>> distanceMatrix(vertexSet.size(), vector<double>(vertexSet.size(), 0));
     double avgDist = 0;
     double nEdges = 0;
-    for (auto vertex: vertexSet) {
-        for (auto edge: adj[vertex.getId()]) {
-            distanceMatrix[vertex.getId()][edge.getDestiny()] = edge.getDistance();
-            avgDist += edge.getDistance();
-            nEdges++;
-        }
-    }
+
+
     avgDist /= nEdges; // the cluster radius is the avg dist
     vector<vector<Vertex>> newAdj(vertexSet.size(), vector<Vertex>()); // cluster adjacency matrix
     bool *visited = new bool[vertexSet.size()];
@@ -599,12 +593,12 @@ void Graph::optimizedTriangularApproximation() {
         vertexSet[i].setDist(INFINITY);
     }
     vector<Vertex> anchors;
-    createClusters(avgDist, distanceMatrix, newAdj, anchors);
+    createClusters(avgDist, newAdj, anchors);
     vector<vector<Vertex>> mstAdj(vertexSet.size(), vector<Vertex>()); // mst adjacency matrix
     // prim setup
 
     for (Vertex &anchor: anchors) {
-        getPrimMSTopt( visited, anchor, newAdj, distanceMatrix, mstAdj); // fill in adjacency matrix
+        getPrimMSTopt( visited, anchor, newAdj,  mstAdj); // fill in adjacency matrix
     }
     fill(visited, visited + vertexSet.size(), false);
     bool allVisited = false;
@@ -614,9 +608,9 @@ void Graph::optimizedTriangularApproximation() {
         double bestDist = INFINITY;
         allVisited = true;
         for (Vertex &vertex: anchors) {
-            if (!visited[vertex.getId()] && distanceMatrix[vertex.getId()][startVertex.getId()] < bestDist) {
+            if (!visited[vertex.getId()] && getDistance(vertex.getId(),startVertex.getId()) < bestDist) {
                 startVertex = vertex;
-                bestDist = distanceMatrix[vertex.getId()][startVertex.getId()];
+                bestDist = getDistance(vertex.getId(),startVertex.getId());
                 allVisited = false;
             }
         }
@@ -635,7 +629,7 @@ void Graph::optimizedTriangularApproximation() {
             cout << path[i] << endl;
         } else {
             cout << path[i] << "-->";
-            finalCost += distanceMatrix[path[i]][path[i + 1]];
+            finalCost += getDistance(path[i],path[i + 1]);
         }
     }
     cout << "Minimum cost to travel: " << getMinimumCost(path) << endl;
@@ -687,7 +681,7 @@ void Graph::runAllAlgorithms() {
 
 
 
-void Graph::createClusters(double dist, vector<vector<double>> distanceMatrix, vector<vector<Vertex>> &newAdj,
+void Graph::createClusters(double dist, vector<vector<Vertex>> &newAdj,
                            vector<Vertex> &anchors) {
     anchors.push_back(vertexSet[0]);
     vector<vector<Vertex>> clusters;
@@ -698,9 +692,9 @@ void Graph::createClusters(double dist, vector<vector<double>> distanceMatrix, v
         double bestDist = INFINITY;
         int bestAnchor = -1;
         for (int i = 0; i < anchors.size(); i++) {
-            if (distanceMatrix[anchors[i].getId()][vertex.getId()] < dist) {
-                if (distanceMatrix[anchors[i].getId()][vertex.getId()] < bestDist) {
-                    bestDist = distanceMatrix[anchors[i].getId()][vertex.getId()];
+            if (getDistance(anchors[i].getId(),vertex.getId()) < dist) {
+                if (getDistance(anchors[i].getId(),vertex.getId()) < bestDist) {
+                    bestDist = getDistance(anchors[i].getId(),vertex.getId());
                     bestAnchor = i;
                 }
                 noAnchors = false;
@@ -725,7 +719,6 @@ void Graph::createClusters(double dist, vector<vector<double>> distanceMatrix, v
 
 void
 Graph::getPrimMSTopt( bool *visited, Vertex &start, vector<vector<Vertex>> &clusterAdj,
-                     vector<vector<double>> &distanceMatrix,
                      vector<vector<Vertex>> &mstAdj) {
 
     MutablePriorityQueue<Vertex> q;
@@ -740,8 +733,8 @@ Graph::getPrimMSTopt( bool *visited, Vertex &start, vector<vector<Vertex>> &clus
 
             if (!visited[next.getId()]) {
                 q.insert(&next);
-                if (distanceMatrix[vertex->getId()][next.getId()] < next.getDist()) {
-                    next.setDist(distanceMatrix[vertex->getId()][next.getId()]);
+                if (getDistance(vertex->getId(),next.getId())< next.getDist()) {
+                    next.setDist(getDistance(vertex->getId(),next.getId()));
                     mstAdj[vertex->getId()].push_back(next);
                     q.decreaseKey(&next);
                 }
@@ -761,4 +754,3 @@ void Graph::preorderWalkOpt(vector<int> &path, bool *visited, Vertex &start, vec
         }
     }
 }
-
