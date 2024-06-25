@@ -14,11 +14,11 @@
 
 <pre>                                          Minimum Cost Comparison      </pre>
 &nbsp;
-![img.png](../src/images/img.png)
+![img.png](/proj-2/src/images/img.png)
 <pre>                                      Execution Time Comparison in Seconds </pre>
 &nbsp;
-![img_1.png](../src/images/img_1.png)
+![img_1.png](/proj-2/src/images/img_1.png)
 
 <pre>                                        Selection of Starting Node Algorithm   </pre>
 &nbsp;
-![img_2.png](../src/images/img_2.png)
+![img_2.png](/proj-2/src/images/img_2.png)
