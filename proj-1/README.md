@@ -2,5 +2,5 @@
 
 ### Description
 
-[Project Description](/src/Project1Description.pdf)
+[Project Description](src/Project1Description.pdf)
 
