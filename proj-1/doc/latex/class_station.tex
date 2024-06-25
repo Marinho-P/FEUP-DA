@@ -1,0 +1,97 @@
+\doxysection{Station Class Reference}
+\hypertarget{class_station}{}\label{class_station}\index{Station@{Station}}
+
+
+Class that stores information about stations.  
+
+
+
+
+{\ttfamily \#include $<$Station.\+h$>$}
+
+Inheritance diagram for Station\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_station}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_station_a5bd5f5c6c385783d3399f801139c9fbc}{Station}} (int id, string code)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_station}{Station} class constructor This constructor calls the constructor of the base class \doxylink{class_node_data}{Node\+Data} to initialize a node of type STATION. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_station_a8a7eae4c39f16d6f04f2c4d1ca1a1f57}{operator==}} (const \mbox{\hyperlink{class_station}{Station}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_node_data}{Node\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_node_data_a4b2569c6589a202ef447f1134a55198a}{Node\+Data}} (int id, const string \&code, node\+Type type)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_node_data}{Node\+Data} class constructor This constructor initializes the different types of graph nodes in the same way. \end{DoxyCompactList}\item 
+node\+Type \mbox{\hyperlink{class_node_data_a7d9466245a979203f38e4a0f892a0add}{get\+Type}} () const
+\item 
+int \mbox{\hyperlink{class_node_data_a608a84d39141cb458299b4a2641a7c49}{get\+Id}} () const
+\item 
+const string \& \mbox{\hyperlink{class_node_data_a5b207ade91064ac5704b671a32ed6d46}{get\+Code}} () const
+\item 
+bool \mbox{\hyperlink{class_node_data_ad1fd8670d287d8f0e1788d4d48378c93}{operator==}} (const \mbox{\hyperlink{class_node_data}{Node\+Data}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_node_data}{Node\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_node_data_adbfa53256b3de6517e6510950b71a28d}{id}}
+\item 
+string \mbox{\hyperlink{class_node_data_a0cb1abda3b3d8dcb3f8995ba6d6de7d4}{code}}
+\item 
+node\+Type \mbox{\hyperlink{class_node_data_a468de773cc4a6dc83e47efe8f62bfdd8}{type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that stores information about stations. 
+
+Definition at line \mbox{\hyperlink{_station_8h_source_l00012}{12}} of file \mbox{\hyperlink{_station_8h_source}{Station.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_station_a5bd5f5c6c385783d3399f801139c9fbc}\label{class_station_a5bd5f5c6c385783d3399f801139c9fbc} 
+\index{Station@{Station}!Station@{Station}}
+\index{Station@{Station}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{Station()}{Station()}}
+{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{string}]{code }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_station}{Station} class constructor This constructor calls the constructor of the base class \doxylink{class_node_data}{Node\+Data} to initialize a node of type STATION. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & = unique identifier of pumping station \\
+\hline
+{\em code} & = code of pumping station \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_station_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_station_8cpp_source}{Station.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_station_a8a7eae4c39f16d6f04f2c4d1ca1a1f57}\label{class_station_a8a7eae4c39f16d6f04f2c4d1ca1a1f57} 
+\index{Station@{Station}!operator==@{operator==}}
+\index{operator==@{operator==}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Station\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_station}{Station}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_station_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_station_8cpp_source}{Station.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Station.\+h\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Station.\+cpp\end{DoxyCompactItemize}

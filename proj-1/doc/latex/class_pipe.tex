@@ -1,0 +1,108 @@
+\doxysection{Pipe Class Reference}
+\hypertarget{class_pipe}{}\label{class_pipe}\index{Pipe@{Pipe}}
+
+
+Class that stores information about pipes, including their source and target service point, capacity and direction.  
+
+
+
+
+{\ttfamily \#include $<$Pipe.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pipe_ab87e7c913725efb0b42eeb8c10f1b094}{Pipe}} (const string \&service\+PointA, const string \&service\+PointB, int capacity, bool direction)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_pipe}{Pipe} class constructor. \end{DoxyCompactList}\item 
+const string \& \mbox{\hyperlink{class_pipe_a649a3434aacf94998d0ef2c04ea753ce}{get\+Service\+PointA}} () const
+\item 
+const string \& \mbox{\hyperlink{class_pipe_a2787904e0063959c49cbfd575f484ef3}{get\+Service\+PointB}} () const
+\item 
+int \mbox{\hyperlink{class_pipe_a3c79c6d7d5120eeb516c3f5ed75d2386}{get\+Capacity}} () const
+\item 
+bool \mbox{\hyperlink{class_pipe_a6285e912835376a6ea96cf7c2dc28cfb}{is\+Direction}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that stores information about pipes, including their source and target service point, capacity and direction. 
+
+Definition at line \mbox{\hyperlink{_pipe_8h_source_l00010}{10}} of file \mbox{\hyperlink{_pipe_8h_source}{Pipe.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pipe_ab87e7c913725efb0b42eeb8c10f1b094}\label{class_pipe_ab87e7c913725efb0b42eeb8c10f1b094} 
+\index{Pipe@{Pipe}!Pipe@{Pipe}}
+\index{Pipe@{Pipe}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{Pipe()}{Pipe()}}
+{\footnotesize\ttfamily Pipe\+::\+Pipe (\begin{DoxyParamCaption}\item[{const string \&}]{service\+PointA,  }\item[{const string \&}]{service\+PointB,  }\item[{int}]{capacity,  }\item[{bool}]{direction }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_pipe}{Pipe} class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service\+PointA} & = source service that can be a water reservoir, a pumping station, or a delivery site \\
+\hline
+{\em service\+PointB} & = target service that can be a water reservoir, a pumping station, or a delivery site \\
+\hline
+{\em capacity} & = maximum capacity of the pipe \\
+\hline
+{\em direction} & = boolean indicating whether the connection between source service and target service is undirected (1 -\/ unidirectional and 0 -\/ bidirectional) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_pipe_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_pipe_8cpp_source}{Pipe.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pipe_a3c79c6d7d5120eeb516c3f5ed75d2386}\label{class_pipe_a3c79c6d7d5120eeb516c3f5ed75d2386} 
+\index{Pipe@{Pipe}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily int Pipe\+::get\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_pipe_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_pipe_8cpp_source}{Pipe.\+cpp}}.
+
+\Hypertarget{class_pipe_a649a3434aacf94998d0ef2c04ea753ce}\label{class_pipe_a649a3434aacf94998d0ef2c04ea753ce} 
+\index{Pipe@{Pipe}!getServicePointA@{getServicePointA}}
+\index{getServicePointA@{getServicePointA}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getServicePointA()}{getServicePointA()}}
+{\footnotesize\ttfamily const string \& Pipe\+::get\+Service\+PointA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_pipe_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_pipe_8cpp_source}{Pipe.\+cpp}}.
+
+\Hypertarget{class_pipe_a2787904e0063959c49cbfd575f484ef3}\label{class_pipe_a2787904e0063959c49cbfd575f484ef3} 
+\index{Pipe@{Pipe}!getServicePointB@{getServicePointB}}
+\index{getServicePointB@{getServicePointB}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getServicePointB()}{getServicePointB()}}
+{\footnotesize\ttfamily const string \& Pipe\+::get\+Service\+PointB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_pipe_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_pipe_8cpp_source}{Pipe.\+cpp}}.
+
+\Hypertarget{class_pipe_a6285e912835376a6ea96cf7c2dc28cfb}\label{class_pipe_a6285e912835376a6ea96cf7c2dc28cfb} 
+\index{Pipe@{Pipe}!isDirection@{isDirection}}
+\index{isDirection@{isDirection}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{isDirection()}{isDirection()}}
+{\footnotesize\ttfamily bool Pipe\+::is\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_pipe_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_pipe_8cpp_source}{Pipe.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Pipe.\+h\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Pipe.\+cpp\end{DoxyCompactItemize}

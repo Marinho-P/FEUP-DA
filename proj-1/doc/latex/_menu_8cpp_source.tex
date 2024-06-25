@@ -1,0 +1,153 @@
+\doxysection{Menu.\+cpp}
+\hypertarget{_menu_8cpp_source}{}\label{_menu_8cpp_source}\index{C:/Users/Asus/Desktop/Universidade/2º ANO/2º Semestre/DA/Projeto1/ProjetoDA1/Menu.cpp@{C:/Users/Asus/Desktop/Universidade/2º ANO/2º Semestre/DA/Projeto1/ProjetoDA1/Menu.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Menu.h"{}}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00004}00004\ Menu::Menu()\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00005}00005\ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00007}00007\ \textcolor{keywordtype}{int}\ Menu::run()\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{int}\ option\ =\ menuOptions();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{while}(option\ !=\ 0)\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(option)\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listBasicServiceMetrics();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listReliabilityandSensitivitytoFailures();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ option\ try\ again"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ option\ =\ menuOptions();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00022}00022\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00023}00023\ \ \ \ \ exit();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00028}00028\ \textcolor{keywordtype}{void}\ Menu::exit()\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00029}00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}>>\ Exiting\ the\ menu."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00030}00030\ \ \ \ \ data.\mbox{\hyperlink{class_data_a0e13408715473aaa3bddf756fa2e3f7b}{cleanUp}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00034}00034\ \textcolor{keywordtype}{int}\ Menu::menuOptions()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{int}\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00036}00036\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00037}00037\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ List\ Basic\ Service\ Metrics"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00038}00038\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2.\ List\ Reliability\ and\ Sensitivity\ to\ Failures"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00039}00039\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}0.\ Exit"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00040}00040\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ option:"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00041}00041\ \ \ \ \ std::cin\ >>\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00046}00046\ \textcolor{keywordtype}{void}\ Menu::listBasicServiceMetrics()\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{int}\ option\ =\ basicServiceMetricsOptions();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{int}\ checkMaxWaterCityOption;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{while}\ (option)\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (option)\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ checkMaxWaterCityOption\ =\ checkMaxWaterCityOptions();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (checkMaxWaterCityOption)\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (checkMaxWaterCityOption)\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.\mbox{\hyperlink{class_data_a7865a3e4f87b264aa85679eb412170f5}{checkMaxWaterWholeNetwork}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.\mbox{\hyperlink{class_data_ad6b3befce9e1cab3f64c37cc91178c17}{checkMaxWaterCity}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ option\ try\ again"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ checkMaxWaterCityOption\ =\ checkMaxWaterCityOptions();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.\mbox{\hyperlink{class_data_a82175dd1ef3f0e61f2d5535a998caaef}{checkCitiesWaterDeficit}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.\mbox{\hyperlink{class_data_a6e8ff52742a8f37e84423d09fc3f373a}{checkBefore\_AfterBalancing}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ option\ try\ again"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ option\ =\ basicServiceMetricsOptions();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00084}00084\ \textcolor{keywordtype}{void}\ Menu::listReliabilityandSensitivitytoFailures()\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{int}\ option\ =\ reliabilityandSensitivitytoFailuresOptions();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{while}\ (option)\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (option)\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.\mbox{\hyperlink{class_data_a5245d45a7b15f80399fb2d4f89e572f1}{citiesAffectedWaterReservoirRemoval}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.\mbox{\hyperlink{class_data_a9c6596a76519e591d637249fab2b12b2}{citiesAffectedPumpingStationRemoval}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.\mbox{\hyperlink{class_data_a189d0a151882ff1f96d8b0cbf3ffd7ee}{citiesAffectedPipelineRupture}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.\mbox{\hyperlink{class_data_a66e04cc898e7fcbd23e13fd1c24486e3}{citiesAffectedANYPipelineRupture}}();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ option\ try\ again"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ option\ =\ reliabilityandSensitivitytoFailuresOptions();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00106}00106\ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00109}00109\ \textcolor{keywordtype}{int}\ Menu::reliabilityandSensitivitytoFailuresOptions()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{keywordtype}{int}\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00111}00111\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00112}00112\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ Check\ the\ affected\ cities\ whose\ water\ supply\ does\ not\ meet\ its\ demand\ when\ a\ reservoir\ is\ removed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00113}00113\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2.\ Check\ which\ cities\ are\ affected\ when\ a\ pumping\ station\ is\ removed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00114}00114\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}3.\ Check\ for\ each\ pipeline\ rupture\ which\ cities\ will\ be\ affected"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00115}00115\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}4.\ Check\ for\ any\ pipeline\ rupture\ which\ cities\ will\ be\ affected"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00116}00116\ \ \ \ \ cout<<\ \textcolor{stringliteral}{"{}0.\ Back\ to\ main\ menu"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00117}00117\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ option:"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00118}00118\ \ \ \ \ cin\ >>\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00119}00119\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{return}\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00121}00121\ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00124}00124\ \textcolor{keywordtype}{int}\ Menu::basicServiceMetricsOptions()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordtype}{int}\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00126}00126\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00127}00127\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ Check\ the\ maximum\ amount\ of\ water\ that\ can\ reach\ each\ or\ a\ specific\ city"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00128}00128\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2.\ Check\ the\ Cities\ that\ don't\ meet\ the\ desired\ water\ rate\ level\ requirements"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00129}00129\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}3.\ Check\ the\ average\ and\ variance\ of\ the\ differences\ between\ capacity\ and\ flow\ for\ each\ pipe,\ as\ well\ as,\(\backslash\)n\ the\ maximum\ difference,\ before\ and\ after\ the\ balancing"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00130}00130\ \ \ \ \ cout<<\ \textcolor{stringliteral}{"{}0.\ Back\ to\ main\ menu"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00131}00131\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ option:"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00132}00132\ \ \ \ \ cin\ >>\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00133}00133\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{return}\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00135}00135\ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00138}00138\ \textcolor{keywordtype}{int}\ Menu::checkMaxWaterCityOptions()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00139}00139\ \ \ \ \ \textcolor{keywordtype}{int}\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00140}00140\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}1.\ Check\ for\ all\ cities"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00141}00141\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}2.\ Check\ for\ a\ specific\ city"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00142}00142\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}0.\ Go\ back"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00143}00143\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ option:"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00144}00144\ \ \ \ \ cin\ >>\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00145}00145\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00146}00146\ \ \ \ \ \textcolor{keywordflow}{return}\ option;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00147}00147\ \}}
+
+\end{DoxyCode}

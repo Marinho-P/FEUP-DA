@@ -1,0 +1,139 @@
+\doxysection{Reservoir Class Reference}
+\hypertarget{class_reservoir}{}\label{class_reservoir}\index{Reservoir@{Reservoir}}
+
+
+Class that stores information about reservoirs, including their name, municipality and max delivery.  
+
+
+
+
+{\ttfamily \#include $<$Reservoir.\+h$>$}
+
+Inheritance diagram for Reservoir\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_reservoir}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_reservoir_afbd5142b3a5fa1a95e035d79cf4722e5}{Reservoir}} (const string \&name, const string \&municipality, const int \&id, const string \&code, const int \&max\+Delivery)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_reservoir}{Reservoir} class constructor This constructor calls the constructor of the base class \doxylink{class_node_data}{Node\+Data} to initialize a node of type RESERVOIR. \end{DoxyCompactList}\item 
+const string \& \mbox{\hyperlink{class_reservoir_a7a579cdd7be56cd93a9ab46b76e360a2}{get\+Name}} () const
+\item 
+const string \& \mbox{\hyperlink{class_reservoir_accec9e8186df8c1761dae6e1e331e295}{get\+Municipality}} () const
+\item 
+int \mbox{\hyperlink{class_reservoir_a59a17dd56e7ed41778007f0b5e64e69d}{get\+Max\+Delivery}} () const
+\item 
+bool \mbox{\hyperlink{class_reservoir_a9fa549a2a70943c82a67a86da9fb5d80}{operator==}} (const \mbox{\hyperlink{class_reservoir}{Reservoir}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_node_data}{Node\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_node_data_a4b2569c6589a202ef447f1134a55198a}{Node\+Data}} (int id, const string \&code, node\+Type type)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_node_data}{Node\+Data} class constructor This constructor initializes the different types of graph nodes in the same way. \end{DoxyCompactList}\item 
+node\+Type \mbox{\hyperlink{class_node_data_a7d9466245a979203f38e4a0f892a0add}{get\+Type}} () const
+\item 
+int \mbox{\hyperlink{class_node_data_a608a84d39141cb458299b4a2641a7c49}{get\+Id}} () const
+\item 
+const string \& \mbox{\hyperlink{class_node_data_a5b207ade91064ac5704b671a32ed6d46}{get\+Code}} () const
+\item 
+bool \mbox{\hyperlink{class_node_data_ad1fd8670d287d8f0e1788d4d48378c93}{operator==}} (const \mbox{\hyperlink{class_node_data}{Node\+Data}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_node_data}{Node\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_node_data_adbfa53256b3de6517e6510950b71a28d}{id}}
+\item 
+string \mbox{\hyperlink{class_node_data_a0cb1abda3b3d8dcb3f8995ba6d6de7d4}{code}}
+\item 
+node\+Type \mbox{\hyperlink{class_node_data_a468de773cc4a6dc83e47efe8f62bfdd8}{type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that stores information about reservoirs, including their name, municipality and max delivery. 
+
+Definition at line \mbox{\hyperlink{_reservoir_8h_source_l00008}{8}} of file \mbox{\hyperlink{_reservoir_8h_source}{Reservoir.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_reservoir_afbd5142b3a5fa1a95e035d79cf4722e5}\label{class_reservoir_afbd5142b3a5fa1a95e035d79cf4722e5} 
+\index{Reservoir@{Reservoir}!Reservoir@{Reservoir}}
+\index{Reservoir@{Reservoir}!Reservoir@{Reservoir}}
+\doxysubsubsection{\texorpdfstring{Reservoir()}{Reservoir()}}
+{\footnotesize\ttfamily Reservoir\+::\+Reservoir (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const string \&}]{municipality,  }\item[{const int \&}]{id,  }\item[{const string \&}]{code,  }\item[{const int \&}]{max\+Delivery }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_reservoir}{Reservoir} class constructor This constructor calls the constructor of the base class \doxylink{class_node_data}{Node\+Data} to initialize a node of type RESERVOIR. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & = name of the water reservoir \\
+\hline
+{\em municipality} & = municipality where the water reservoir is located \\
+\hline
+{\em id} & = unique identifier of water reservoir \\
+\hline
+{\em code} & = code of water reservoir \\
+\hline
+{\em max\+Delivery} & = maximum delivery of water reservoir in m3/sec \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_reservoir_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_reservoir_8cpp_source}{Reservoir.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_reservoir_a59a17dd56e7ed41778007f0b5e64e69d}\label{class_reservoir_a59a17dd56e7ed41778007f0b5e64e69d} 
+\index{Reservoir@{Reservoir}!getMaxDelivery@{getMaxDelivery}}
+\index{getMaxDelivery@{getMaxDelivery}!Reservoir@{Reservoir}}
+\doxysubsubsection{\texorpdfstring{getMaxDelivery()}{getMaxDelivery()}}
+{\footnotesize\ttfamily int Reservoir\+::get\+Max\+Delivery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_reservoir_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_reservoir_8cpp_source}{Reservoir.\+cpp}}.
+
+\Hypertarget{class_reservoir_accec9e8186df8c1761dae6e1e331e295}\label{class_reservoir_accec9e8186df8c1761dae6e1e331e295} 
+\index{Reservoir@{Reservoir}!getMunicipality@{getMunicipality}}
+\index{getMunicipality@{getMunicipality}!Reservoir@{Reservoir}}
+\doxysubsubsection{\texorpdfstring{getMunicipality()}{getMunicipality()}}
+{\footnotesize\ttfamily const string \& Reservoir\+::get\+Municipality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_reservoir_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_reservoir_8cpp_source}{Reservoir.\+cpp}}.
+
+\Hypertarget{class_reservoir_a7a579cdd7be56cd93a9ab46b76e360a2}\label{class_reservoir_a7a579cdd7be56cd93a9ab46b76e360a2} 
+\index{Reservoir@{Reservoir}!getName@{getName}}
+\index{getName@{getName}!Reservoir@{Reservoir}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const string \& Reservoir\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_reservoir_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_reservoir_8cpp_source}{Reservoir.\+cpp}}.
+
+\Hypertarget{class_reservoir_a9fa549a2a70943c82a67a86da9fb5d80}\label{class_reservoir_a9fa549a2a70943c82a67a86da9fb5d80} 
+\index{Reservoir@{Reservoir}!operator==@{operator==}}
+\index{operator==@{operator==}!Reservoir@{Reservoir}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Reservoir\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_reservoir}{Reservoir}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_reservoir_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_reservoir_8cpp_source}{Reservoir.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Reservoir.\+h\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Reservoir.\+cpp\end{DoxyCompactItemize}

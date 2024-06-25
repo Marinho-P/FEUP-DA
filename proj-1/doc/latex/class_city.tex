@@ -1,0 +1,139 @@
+\doxysection{City Class Reference}
+\hypertarget{class_city}{}\label{class_city}\index{City@{City}}
+
+
+Class that stores information about cities, including their name, demand and population.  
+
+
+
+
+{\ttfamily \#include $<$City.\+h$>$}
+
+Inheritance diagram for City\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_city}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_city_a907e44f7a87fdba96ab480017cd6db2c}{City}} (const string \&name, const int \&id, const string \&delivery\+\_\+code, const double \&demand, const int \&population)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_city}{City} class constructor This constructor calls the constructor of the base class \doxylink{class_node_data}{Node\+Data} to initialize a node of type CITY. \end{DoxyCompactList}\item 
+const string \& \mbox{\hyperlink{class_city_a978429afde36d9778a09152c42f62fe2}{get\+Name}} () const
+\item 
+double \mbox{\hyperlink{class_city_a3c464469cd7cab75660ab2dc78c22869}{get\+Demand}} () const
+\item 
+int \mbox{\hyperlink{class_city_a23be6779c2ba1f5ee0f303b9a160216d}{get\+Population}} () const
+\item 
+bool \mbox{\hyperlink{class_city_aac4df03525247a9f8f6937a1c0c2f083}{operator==}} (const \mbox{\hyperlink{class_city}{City}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_node_data}{Node\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_node_data_a4b2569c6589a202ef447f1134a55198a}{Node\+Data}} (int id, const string \&code, node\+Type type)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_node_data}{Node\+Data} class constructor This constructor initializes the different types of graph nodes in the same way. \end{DoxyCompactList}\item 
+node\+Type \mbox{\hyperlink{class_node_data_a7d9466245a979203f38e4a0f892a0add}{get\+Type}} () const
+\item 
+int \mbox{\hyperlink{class_node_data_a608a84d39141cb458299b4a2641a7c49}{get\+Id}} () const
+\item 
+const string \& \mbox{\hyperlink{class_node_data_a5b207ade91064ac5704b671a32ed6d46}{get\+Code}} () const
+\item 
+bool \mbox{\hyperlink{class_node_data_ad1fd8670d287d8f0e1788d4d48378c93}{operator==}} (const \mbox{\hyperlink{class_node_data}{Node\+Data}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_node_data}{Node\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_node_data_adbfa53256b3de6517e6510950b71a28d}{id}}
+\item 
+string \mbox{\hyperlink{class_node_data_a0cb1abda3b3d8dcb3f8995ba6d6de7d4}{code}}
+\item 
+node\+Type \mbox{\hyperlink{class_node_data_a468de773cc4a6dc83e47efe8f62bfdd8}{type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that stores information about cities, including their name, demand and population. 
+
+Definition at line \mbox{\hyperlink{_city_8h_source_l00008}{8}} of file \mbox{\hyperlink{_city_8h_source}{City.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_city_a907e44f7a87fdba96ab480017cd6db2c}\label{class_city_a907e44f7a87fdba96ab480017cd6db2c} 
+\index{City@{City}!City@{City}}
+\index{City@{City}!City@{City}}
+\doxysubsubsection{\texorpdfstring{City()}{City()}}
+{\footnotesize\ttfamily City\+::\+City (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const int \&}]{id,  }\item[{const string \&}]{delivery\+\_\+code,  }\item[{const double \&}]{demand,  }\item[{const int \&}]{population }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_city}{City} class constructor This constructor calls the constructor of the base class \doxylink{class_node_data}{Node\+Data} to initialize a node of type CITY. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & = city of the delivery site \\
+\hline
+{\em id} & = unique identifier of the delivery site \\
+\hline
+{\em delivery\+\_\+code} & = code of the delivery site \\
+\hline
+{\em demand} & = rate demand or need of delivery site in m3/sec \\
+\hline
+{\em population} & = total population of the delivery site \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_city_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_city_8cpp_source}{City.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_city_a3c464469cd7cab75660ab2dc78c22869}\label{class_city_a3c464469cd7cab75660ab2dc78c22869} 
+\index{City@{City}!getDemand@{getDemand}}
+\index{getDemand@{getDemand}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getDemand()}{getDemand()}}
+{\footnotesize\ttfamily double City\+::get\+Demand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_city_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_city_8cpp_source}{City.\+cpp}}.
+
+\Hypertarget{class_city_a978429afde36d9778a09152c42f62fe2}\label{class_city_a978429afde36d9778a09152c42f62fe2} 
+\index{City@{City}!getName@{getName}}
+\index{getName@{getName}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const string \& City\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_city_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_city_8cpp_source}{City.\+cpp}}.
+
+\Hypertarget{class_city_a23be6779c2ba1f5ee0f303b9a160216d}\label{class_city_a23be6779c2ba1f5ee0f303b9a160216d} 
+\index{City@{City}!getPopulation@{getPopulation}}
+\index{getPopulation@{getPopulation}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getPopulation()}{getPopulation()}}
+{\footnotesize\ttfamily int City\+::get\+Population (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_city_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_city_8cpp_source}{City.\+cpp}}.
+
+\Hypertarget{class_city_aac4df03525247a9f8f6937a1c0c2f083}\label{class_city_aac4df03525247a9f8f6937a1c0c2f083} 
+\index{City@{City}!operator==@{operator==}}
+\index{operator==@{operator==}!City@{City}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool City\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_city}{City}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_city_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_city_8cpp_source}{City.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/City.\+h\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/City.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,154 @@
+\doxysection{Node\+Data Class Reference}
+\hypertarget{class_node_data}{}\label{class_node_data}\index{NodeData@{NodeData}}
+
+
+Class that stores nodes, be them cities, stations or reservoirs.  
+
+
+
+
+{\ttfamily \#include $<$Node\+Data.\+h$>$}
+
+Inheritance diagram for Node\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_node_data}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_node_data_a4b2569c6589a202ef447f1134a55198a}{Node\+Data}} (int id, const string \&code, node\+Type type)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_node_data}{Node\+Data} class constructor This constructor initializes the different types of graph nodes in the same way. \end{DoxyCompactList}\item 
+node\+Type \mbox{\hyperlink{class_node_data_a7d9466245a979203f38e4a0f892a0add}{get\+Type}} () const
+\item 
+int \mbox{\hyperlink{class_node_data_a608a84d39141cb458299b4a2641a7c49}{get\+Id}} () const
+\item 
+const string \& \mbox{\hyperlink{class_node_data_a5b207ade91064ac5704b671a32ed6d46}{get\+Code}} () const
+\item 
+bool \mbox{\hyperlink{class_node_data_ad1fd8670d287d8f0e1788d4d48378c93}{operator==}} (const \mbox{\hyperlink{class_node_data}{Node\+Data}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_node_data_adbfa53256b3de6517e6510950b71a28d}{id}}
+\item 
+string \mbox{\hyperlink{class_node_data_a0cb1abda3b3d8dcb3f8995ba6d6de7d4}{code}}
+\item 
+node\+Type \mbox{\hyperlink{class_node_data_a468de773cc4a6dc83e47efe8f62bfdd8}{type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that stores nodes, be them cities, stations or reservoirs. 
+
+Definition at line \mbox{\hyperlink{_node_data_8h_source_l00016}{16}} of file \mbox{\hyperlink{_node_data_8h_source}{Node\+Data.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_node_data_a4b2569c6589a202ef447f1134a55198a}\label{class_node_data_a4b2569c6589a202ef447f1134a55198a} 
+\index{NodeData@{NodeData}!NodeData@{NodeData}}
+\index{NodeData@{NodeData}!NodeData@{NodeData}}
+\doxysubsubsection{\texorpdfstring{NodeData()}{NodeData()}}
+{\footnotesize\ttfamily Node\+Data\+::\+Node\+Data (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{const string \&}]{code,  }\item[{node\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_node_data}{Node\+Data} class constructor This constructor initializes the different types of graph nodes in the same way. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & = unique identifier of the node \\
+\hline
+{\em code} & = code of the node \\
+\hline
+{\em type} & = type of the node (RESERVOIR, STATION, CITY) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_node_data_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_node_data_8cpp_source}{Node\+Data.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_node_data_a5b207ade91064ac5704b671a32ed6d46}\label{class_node_data_a5b207ade91064ac5704b671a32ed6d46} 
+\index{NodeData@{NodeData}!getCode@{getCode}}
+\index{getCode@{getCode}!NodeData@{NodeData}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily const string \& Node\+Data\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_node_data_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_node_data_8cpp_source}{Node\+Data.\+cpp}}.
+
+\Hypertarget{class_node_data_a608a84d39141cb458299b4a2641a7c49}\label{class_node_data_a608a84d39141cb458299b4a2641a7c49} 
+\index{NodeData@{NodeData}!getId@{getId}}
+\index{getId@{getId}!NodeData@{NodeData}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int Node\+Data\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_node_data_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_node_data_8cpp_source}{Node\+Data.\+cpp}}.
+
+\Hypertarget{class_node_data_a7d9466245a979203f38e4a0f892a0add}\label{class_node_data_a7d9466245a979203f38e4a0f892a0add} 
+\index{NodeData@{NodeData}!getType@{getType}}
+\index{getType@{getType}!NodeData@{NodeData}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily node\+Type Node\+Data\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_node_data_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_node_data_8cpp_source}{Node\+Data.\+cpp}}.
+
+\Hypertarget{class_node_data_ad1fd8670d287d8f0e1788d4d48378c93}\label{class_node_data_ad1fd8670d287d8f0e1788d4d48378c93} 
+\index{NodeData@{NodeData}!operator==@{operator==}}
+\index{operator==@{operator==}!NodeData@{NodeData}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Node\+Data\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_node_data}{Node\+Data}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_node_data_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_node_data_8cpp_source}{Node\+Data.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_node_data_a0cb1abda3b3d8dcb3f8995ba6d6de7d4}\label{class_node_data_a0cb1abda3b3d8dcb3f8995ba6d6de7d4} 
+\index{NodeData@{NodeData}!code@{code}}
+\index{code@{code}!NodeData@{NodeData}}
+\doxysubsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily string Node\+Data\+::code\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_node_data_8h_source_l00033}{33}} of file \mbox{\hyperlink{_node_data_8h_source}{Node\+Data.\+h}}.
+
+\Hypertarget{class_node_data_adbfa53256b3de6517e6510950b71a28d}\label{class_node_data_adbfa53256b3de6517e6510950b71a28d} 
+\index{NodeData@{NodeData}!id@{id}}
+\index{id@{id}!NodeData@{NodeData}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Node\+Data\+::id\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_node_data_8h_source_l00032}{32}} of file \mbox{\hyperlink{_node_data_8h_source}{Node\+Data.\+h}}.
+
+\Hypertarget{class_node_data_a468de773cc4a6dc83e47efe8f62bfdd8}\label{class_node_data_a468de773cc4a6dc83e47efe8f62bfdd8} 
+\index{NodeData@{NodeData}!type@{type}}
+\index{type@{type}!NodeData@{NodeData}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily node\+Type Node\+Data\+::type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_node_data_8h_source_l00034}{34}} of file \mbox{\hyperlink{_node_data_8h_source}{Node\+Data.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Node\+Data.\+h\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Node\+Data.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,65 @@
+\doxysection{Data.\+h}
+\hypertarget{_data_8h_source}{}\label{_data_8h_source}\index{C:/Users/Asus/Desktop/Universidade/2º ANO/2º Semestre/DA/Projeto1/ProjetoDA1/Data.h@{C:/Users/Asus/Desktop/Universidade/2º ANO/2º Semestre/DA/Projeto1/ProjetoDA1/Data.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ DATA\_H}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ DATA\_H}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00004}00004\ \textcolor{preprocessor}{\#define\ CITIES\ "{}../dataset/Cities.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00005}00005\ \textcolor{preprocessor}{\#define\ PIPES\ "{}../dataset/Pipes.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00006}00006\ \textcolor{preprocessor}{\#define\ RESERVOIRS\ "{}../dataset/Reservoir.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ STATIONS\ "{}../dataset/Stations.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CITIES\_MADEIRA\ "{}../smallDataSet/Cities\_Madeira.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ PIPES\_MADEIRA\ "{}../smallDataSet/Pipes\_Madeira.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00011}00011\ \textcolor{preprocessor}{\#define\ RESERVOIRS\_MADEIRA\ "{}../smallDataSet/Reservoirs\_Madeira.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ STATIONS\_MADEIRA\ "{}../smallDataSet/Stations\_Madeira.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}NodeData.h"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}City.h"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}Reservoir.h"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}Pipe.h"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}Station.h"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}data\_structures/Graph.h"{}}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00026}\mbox{\hyperlink{class_data}{00026}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data}{Data}}\ \{}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00027}00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{class_data_af11f741cb7f587e2e495452a8905a22a}{Data}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a8797dd58e363976ab3f7163e6971466a}{read\_cities}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a2e8a6d55b0d24507bedd5bb56fc4113e}{read\_pipes}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_ab7488b4ba6286ea84fd0b814dba06666}{read\_reservoir}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a0dd50a5fc4c2b5ee7f1df98c4833a561}{read\_stations}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_ad6b3befce9e1cab3f64c37cc91178c17}{checkMaxWaterCity}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a82175dd1ef3f0e61f2d5535a998caaef}{checkCitiesWaterDeficit}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_aecd386578e619f31c0601224ebc7a9f8}{deepCopyGraph}}(Graph<NodeData*>\ *graph,\ unordered\_map<\textcolor{keywordtype}{string},\ Vertex<NodeData*>*>\ oldmap,\ unordered\_map<\textcolor{keywordtype}{string},\ Vertex<NodeData*>*>\ \&newmap);}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_aa96980c0dea466a3447aa3e468f7d3f8}{createEdmondskarpG}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_aeb354593c49245e40d017408fdd6373b}{addSuperSource\_Sink}}(Graph<NodeData*>\ *graph,\ unordered\_map<\textcolor{keywordtype}{string},\ Vertex<NodeData*>*>\ \&map);}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a7865a3e4f87b264aa85679eb412170f5}{checkMaxWaterWholeNetwork}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00110}00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a6e8ff52742a8f37e84423d09fc3f373a}{checkBefore\_AfterBalancing}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a5633aaff2763d1b9b528adaa8f164193}{print\_calculateStatistics}}(Graph<NodeData*>\ *graph,\ \textcolor{keywordtype}{double}\ nPipes);}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00126}00126\ \ \ \ \ Graph<NodeData*>\ *\ \mbox{\hyperlink{class_data_ac66d8a449785ab3188588e4e60189ede}{balancePipes}}(Graph<NodeData*>\ *pGraph);}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a189d0a151882ff1f96d8b0cbf3ffd7ee}{citiesAffectedPipelineRupture}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a9c6596a76519e591d637249fab2b12b2}{citiesAffectedPumpingStationRemoval}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00150}00150\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a5245d45a7b15f80399fb2d4f89e572f1}{citiesAffectedWaterReservoirRemoval}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00158}00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a66e04cc898e7fcbd23e13fd1c24486e3}{citiesAffectedANYPipelineRupture}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00160}00160\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a0e13408715473aaa3bddf756fa2e3f7b}{cleanUp}}();}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00162}00162\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00163}00163\ \ \ \ \ Graph<NodeData*>*\ waterG;}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00164}00164\ \ \ \ \ Graph<NodeData*>*\ edmondskarpG;}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00165}00165\ \ \ \ \ unordered\_map<string,Vertex<NodeData*>*>\ nodesKarpG;}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00166}00166\ \ \ \ \ unordered\_map<string,Vertex<NodeData*>*>\ nodes;}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00167}00167\ \ \ \ \ unordered\_map<int,Vertex<NodeData*>*>\ reservoirs;}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00168}00168\ \ \ \ \ unordered\_map<int,Vertex<NodeData*>*>\ cities;}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00169}00169\ \ \ \ \ unordered\_map<int,Vertex<NodeData*>*>\ stations;}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00170}00170\ \ \ \ \ unordered\_map<string,Pipe*>\ pipes;}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00171}00171\ \};}
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{_data_8h_source_l00174}00174\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,173 @@
+\doxysection{Vertex Class Reference}
+\hypertarget{class_vertex}{}\label{class_vertex}\index{Vertex@{Vertex}}
+
+
+Represents a geographical vertex with latitude, longitude, and an identifier.  
+
+
+
+
+{\ttfamily \#include $<$Vertex.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_vertex_a47ac91d7af92812e6a9650cdefdd343a}{calculate\+Distance\+To\+Vertex}} (\mbox{\hyperlink{class_vertex}{Vertex}} other)
+\begin{DoxyCompactList}\small\item\em Calculates the distance between two vertexes using the Haversine formula. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_vertex_a7455a09de51b274867edae2254cef38d}{get\+Latitude}} () const
+\begin{DoxyCompactList}\small\item\em Gets the latitude of the vertex. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_vertex_af1a2bee6c38f511cbfea082eb7149537}{get\+Longitude}} () const
+\begin{DoxyCompactList}\small\item\em Gets the longitude of the vertex. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_vertex_a75b6b4a4afc26affea59fdae48aa30b1}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the id of the vertex. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex_a00afd29757802f0d84cd6f949c023c50}{Vertex}} (double latitude, double longitude, int id)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_vertex}{Vertex} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vertex_ad4ccd48170a1530ec1db5eb306357a74}{operator$<$}} (\mbox{\hyperlink{class_vertex}{Vertex}} \&vertex) const
+\begin{DoxyCompactList}\small\item\em Compares the distance of two vertices. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_vertex_aa36ca926de23a6e7283be42e2930957c}{get\+Dist}} () const
+\begin{DoxyCompactList}\small\item\em Gets the distance of the vertex. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_a6939bef79bfe5fe5bf77d9fd1bd70085}{set\+Dist}} (double dist)
+\begin{DoxyCompactList}\small\item\em Sets the distance of the vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_vertex_a78ba760e405ba9f66129b3870065b48f}\label{class_vertex_a78ba760e405ba9f66129b3870065b48f} 
+int {\bfseries queue\+Index} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a geographical vertex with latitude, longitude, and an identifier. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_vertex_a00afd29757802f0d84cd6f949c023c50}\label{class_vertex_a00afd29757802f0d84cd6f949c023c50} 
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{Vertex()}{Vertex()}}
+{\footnotesize\ttfamily Vertex\+::\+Vertex (\begin{DoxyParamCaption}\item[{double}]{latitude,  }\item[{double}]{longitude,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_vertex}{Vertex} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em latitude} & The latitude of the vertex. \\
+\hline
+{\em longitude} & The longitude of the vertex. \\
+\hline
+{\em id} & The identifier of the vertex.\\
+\hline
+\end{DoxyParams}
+Time complexity -\/ O(1) 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_vertex_a47ac91d7af92812e6a9650cdefdd343a}\label{class_vertex_a47ac91d7af92812e6a9650cdefdd343a} 
+\index{Vertex@{Vertex}!calculateDistanceToVertex@{calculateDistanceToVertex}}
+\index{calculateDistanceToVertex@{calculateDistanceToVertex}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{calculateDistanceToVertex()}{calculateDistanceToVertex()}}
+{\footnotesize\ttfamily double Vertex\+::calculate\+Distance\+To\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Calculates the distance between two vertexes using the Haversine formula. 
+
+Time complexity -\/ O(1) 
+\begin{DoxyParams}{Parameters}
+{\em other} & The destination vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the vertexes in meters. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_aa36ca926de23a6e7283be42e2930957c}\label{class_vertex_aa36ca926de23a6e7283be42e2930957c} 
+\index{Vertex@{Vertex}!getDist@{getDist}}
+\index{getDist@{getDist}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{getDist()}{getDist()}}
+{\footnotesize\ttfamily double Vertex\+::get\+Dist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the distance of the vertex. 
+
+\begin{DoxyReturn}{Returns}
+The distance. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_a75b6b4a4afc26affea59fdae48aa30b1}\label{class_vertex_a75b6b4a4afc26affea59fdae48aa30b1} 
+\index{Vertex@{Vertex}!getId@{getId}}
+\index{getId@{getId}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int Vertex\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the id of the vertex. 
+
+\begin{DoxyReturn}{Returns}
+The id. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_a7455a09de51b274867edae2254cef38d}\label{class_vertex_a7455a09de51b274867edae2254cef38d} 
+\index{Vertex@{Vertex}!getLatitude@{getLatitude}}
+\index{getLatitude@{getLatitude}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{getLatitude()}{getLatitude()}}
+{\footnotesize\ttfamily double Vertex\+::get\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the latitude of the vertex. 
+
+\begin{DoxyReturn}{Returns}
+The latitude. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_af1a2bee6c38f511cbfea082eb7149537}\label{class_vertex_af1a2bee6c38f511cbfea082eb7149537} 
+\index{Vertex@{Vertex}!getLongitude@{getLongitude}}
+\index{getLongitude@{getLongitude}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{getLongitude()}{getLongitude()}}
+{\footnotesize\ttfamily double Vertex\+::get\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the longitude of the vertex. 
+
+\begin{DoxyReturn}{Returns}
+The longitude. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_ad4ccd48170a1530ec1db5eb306357a74}\label{class_vertex_ad4ccd48170a1530ec1db5eb306357a74} 
+\index{Vertex@{Vertex}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Vertex\+::operator$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} \&}]{vertex }\end{DoxyParamCaption}) const}
+
+
+
+Compares the distance of two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & The vertex to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this vertex has a smaller distance, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_a6939bef79bfe5fe5bf77d9fd1bd70085}\label{class_vertex_a6939bef79bfe5fe5bf77d9fd1bd70085} 
+\index{Vertex@{Vertex}!setDist@{setDist}}
+\index{setDist@{setDist}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{setDist()}{setDist()}}
+{\footnotesize\ttfamily void Vertex\+::set\+Dist (\begin{DoxyParamCaption}\item[{double}]{dist }\end{DoxyParamCaption})}
+
+
+
+Sets the distance of the vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & The new distance. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Project\+DA2/Vertex.\+h\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Project\+DA2/Vertex.\+cpp\end{DoxyCompactItemize}

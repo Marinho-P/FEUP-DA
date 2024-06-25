@@ -1,0 +1,368 @@
+\doxysection{Data Class Reference}
+\hypertarget{class_data}{}\label{class_data}\index{Data@{Data}}
+
+
+Class where all classes interact and where system requests are handled.  
+
+
+
+
+{\ttfamily \#include $<$Data.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_af11f741cb7f587e2e495452a8905a22a}{Data}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_data}{Data} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a8797dd58e363976ab3f7163e6971466a}{read\+\_\+cities}} ()
+\begin{DoxyCompactList}\small\item\em Read data from the "{}cities.\+csv"{} / "{}cities\+\_\+madeira.\+csv"{} file and populate \doxylink{class_city}{City} objects. This function reads data from the "{}cities.\+csv"{} / "{}cities\+\_\+madeira.\+csv"{} file, creates \doxylink{class_city}{City} objects for each entry, and populates the corresponding data structures in the \doxylink{class_data}{Data} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a2e8a6d55b0d24507bedd5bb56fc4113e}{read\+\_\+pipes}} ()
+\begin{DoxyCompactList}\small\item\em Read data from the "{}pipes.\+csv"{} / "{}pipes\+\_\+madeira.\+csv"{} file and populate \doxylink{class_pipe}{Pipe} objects. This function reads data from the "{}pipes.\+csv"{} / "{}pipes\+\_\+madeira.\+csv"{} file, creates \doxylink{class_pipe}{Pipe} objects for each entry, and populates the corresponding data structures in the \doxylink{class_data}{Data} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_ab7488b4ba6286ea84fd0b814dba06666}{read\+\_\+reservoir}} ()
+\begin{DoxyCompactList}\small\item\em Read data from the "{}reservoirs.\+csv"{} / "{}reservoirs\+\_\+madeira.\+csv"{} file and populate \doxylink{class_reservoir}{Reservoir} objects. This function reads data from the "{}reservoirs.\+csv"{} / "{}reservoirs\+\_\+madeira.\+csv"{} file, creates \doxylink{class_reservoir}{Reservoir} objects for each entry, and populates the corresponding data structures in the \doxylink{class_data}{Data} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a0dd50a5fc4c2b5ee7f1df98c4833a561}{read\+\_\+stations}} ()
+\begin{DoxyCompactList}\small\item\em Read data from the "{}stations.\+csv"{} / "{}stations\+\_\+madeira.\+csv"{} file and populate \doxylink{class_station}{Station} objects. This function reads data from the "{}stations.\+csv"{} / "{}stations\+\_\+madeira.\+csv"{} file, creates \doxylink{class_station}{Station} objects for each entry, and populates the corresponding data structures in the \doxylink{class_data}{Data} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_ad6b3befce9e1cab3f64c37cc91178c17}{check\+Max\+Water\+City}} ()
+\begin{DoxyCompactList}\small\item\em Checks and prints the maximum water flow to a specific city. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a82175dd1ef3f0e61f2d5535a998caaef}{check\+Cities\+Water\+Deficit}} ()
+\begin{DoxyCompactList}\small\item\em Checks and prints the cities with water deficit. This function calculates the water deficit for each city in the network by comparing the demand of each city with the actual water flow reaching it. It iterates over each city vertex in the graph and computes the flow of water reaching the city. If the flow is less than the city\textquotesingle{}s demand, it indicates a deficit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_aecd386578e619f31c0601224ebc7a9f8}{deep\+Copy\+Graph}} (Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}graph, unordered\+\_\+map$<$ string, Vertex$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} $>$ oldmap, unordered\+\_\+map$<$ string, Vertex$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} $>$ \&newmap)
+\begin{DoxyCompactList}\small\item\em Performs a deep copy of the graph. This function deep copies the graph, including all its vertices and edges. It iterates through the vertices of the original graph and creates deep copies of them, adding them to the new graph. Then, it iterates through the edges of each vertex, creating new edges in the new graph while maintaining their weights, flows, and reverses. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_aa96980c0dea466a3447aa3e468f7d3f8}{create\+EdmondskarpG}} ()
+\begin{DoxyCompactList}\small\item\em Creates a modified graph for the Edmonds-\/\+Karp algorithm and performs the maximum flow calculation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_aeb354593c49245e40d017408fdd6373b}{add\+Super\+Source\+\_\+\+Sink}} (Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}graph, unordered\+\_\+map$<$ string, Vertex$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} $>$ \&map)
+\begin{DoxyCompactList}\small\item\em Adds a super source and super sink to the given graph and updates the capacities accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a7865a3e4f87b264aa85679eb412170f5}{check\+Max\+Water\+Whole\+Network}} ()
+\begin{DoxyCompactList}\small\item\em Checks and prints the maximum water flow in the entire network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a6e8ff52742a8f37e84423d09fc3f373a}{check\+Before\+\_\+\+After\+Balancing}} ()
+\begin{DoxyCompactList}\small\item\em Compares statistics before and after balancing the pipe network. This function prints statistics about the difference between pipe capacity and flow before and after applying a balancing algorithm to the pipe network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a5633aaff2763d1b9b528adaa8f164193}{print\+\_\+calculate\+Statistics}} (Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}graph, double n\+Pipes)
+\begin{DoxyCompactList}\small\item\em Calculates and prints statistics about the difference between pipe capacity and flow. This function calculates statistics including the average difference, variance, and maximum difference between the capacity and flow of pipes in the given graph, excluding the super\+Source and super\+Sink nodes from the calculation. \end{DoxyCompactList}\item 
+Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_data_ac66d8a449785ab3188588e4e60189ede}{balance\+Pipes}} (Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}p\+Graph)
+\begin{DoxyCompactList}\small\item\em Applies a pipe balancing algorithm on the graph. This method is responsible for implementing a pipe balancing algorithm on the provided graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a189d0a151882ff1f96d8b0cbf3ffd7ee}{cities\+Affected\+Pipeline\+Rupture}} ()
+\begin{DoxyCompactList}\small\item\em Determines and prints the cities affected by pipeline rupture. This function simulates the effect of a pipeline rupture on the network by temporarily removing the specified pipeline(s) from the graph. It then recalculates the flow of water in the network using the Edmonds-\/\+Karp algorithm and checks for any decrease in water flow to cities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a9c6596a76519e591d637249fab2b12b2}{cities\+Affected\+Pumping\+Station\+Removal}} ()
+\begin{DoxyCompactList}\small\item\em Determines and prints the cities affected by the removal of a pumping station. This function simulates the effect of removing a pumping station from the network by temporarily removing the station from the graph. It then recalculates the flow of water in the network using the Edmonds-\/\+Karp algorithm and checks for any decrease in water flow to cities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a5245d45a7b15f80399fb2d4f89e572f1}{cities\+Affected\+Water\+Reservoir\+Removal}} ()
+\begin{DoxyCompactList}\small\item\em Determines and prints the cities affected by the removal of a water reservoir. This function simulates the effect of removing a water reservoir from the network by temporarily removing the reservoir vertex from the graph. It then recalculates the flow of water in the network using the Edmonds-\/\+Karp algorithm and checks for any decrease in water flow to cities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a66e04cc898e7fcbd23e13fd1c24486e3}{cities\+Affected\+ANYPipeline\+Rupture}} ()
+\begin{DoxyCompactList}\small\item\em Determines and prints the cities affected by any pipeline rupture specified by the user. This function simulates the effect of pipeline rupture(s) by temporarily removing the affected pipeline(s) from the graph. It then recalculates the flow of water in the network using the Edmonds-\/\+Karp algorithm and checks for any decrease in water flow to cities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_a0e13408715473aaa3bddf756fa2e3f7b}{clean\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Cleans up resources and deallocates memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class where all classes interact and where system requests are handled. 
+
+Definition at line \mbox{\hyperlink{_data_8h_source_l00026}{26}} of file \mbox{\hyperlink{_data_8h_source}{Data.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_data_af11f741cb7f587e2e495452a8905a22a}\label{class_data_af11f741cb7f587e2e495452a8905a22a} 
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_data}{Data} class. 
+
+
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_aeb354593c49245e40d017408fdd6373b}\label{class_data_aeb354593c49245e40d017408fdd6373b} 
+\index{Data@{Data}!addSuperSource\_Sink@{addSuperSource\_Sink}}
+\index{addSuperSource\_Sink@{addSuperSource\_Sink}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{addSuperSource\_Sink()}{addSuperSource\_Sink()}}
+{\footnotesize\ttfamily void Data\+::add\+Super\+Source\+\_\+\+Sink (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}}]{graph,  }\item[{unordered\+\_\+map$<$ string, Vertex$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{map }\end{DoxyParamCaption})}
+
+
+
+Adds a super source and super sink to the given graph and updates the capacities accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & = A pointer to the graph. \\
+\hline
+{\em map} & = A reference to the map containing vertex mappings. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00326}{326}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_ac66d8a449785ab3188588e4e60189ede}\label{class_data_ac66d8a449785ab3188588e4e60189ede} 
+\index{Data@{Data}!balancePipes@{balancePipes}}
+\index{balancePipes@{balancePipes}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{balancePipes()}{balancePipes()}}
+{\footnotesize\ttfamily Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} Data\+::balance\+Pipes (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}}]{p\+Graph }\end{DoxyParamCaption})}
+
+
+
+Applies a pipe balancing algorithm on the graph. This method is responsible for implementing a pipe balancing algorithm on the provided graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Graph} & = the graph on which the pipe balancing will be applied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph after applying the balancing algorithm. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00458}{458}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a6e8ff52742a8f37e84423d09fc3f373a}\label{class_data_a6e8ff52742a8f37e84423d09fc3f373a} 
+\index{Data@{Data}!checkBefore\_AfterBalancing@{checkBefore\_AfterBalancing}}
+\index{checkBefore\_AfterBalancing@{checkBefore\_AfterBalancing}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{checkBefore\_AfterBalancing()}{checkBefore\_AfterBalancing()}}
+{\footnotesize\ttfamily void Data\+::check\+Before\+\_\+\+After\+Balancing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Compares statistics before and after balancing the pipe network. This function prints statistics about the difference between pipe capacity and flow before and after applying a balancing algorithm to the pipe network. 
+
+
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00421}{421}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a82175dd1ef3f0e61f2d5535a998caaef}\label{class_data_a82175dd1ef3f0e61f2d5535a998caaef} 
+\index{Data@{Data}!checkCitiesWaterDeficit@{checkCitiesWaterDeficit}}
+\index{checkCitiesWaterDeficit@{checkCitiesWaterDeficit}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{checkCitiesWaterDeficit()}{checkCitiesWaterDeficit()}}
+{\footnotesize\ttfamily void Data\+::check\+Cities\+Water\+Deficit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks and prints the cities with water deficit. This function calculates the water deficit for each city in the network by comparing the demand of each city with the actual water flow reaching it. It iterates over each city vertex in the graph and computes the flow of water reaching the city. If the flow is less than the city\textquotesingle{}s demand, it indicates a deficit. 
+
+The complexity of this function depends on the number of cities and the number of incoming edges to each city vertex. Let n be the number of cities and m be the average number of incoming edges per city vertex. In the worst case scenario, it iterates over all city vertices and their incoming edges, resulting in a time complexity of O(n \texorpdfstring{$\ast$}{*} m). 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00433}{433}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_ad6b3befce9e1cab3f64c37cc91178c17}\label{class_data_ad6b3befce9e1cab3f64c37cc91178c17} 
+\index{Data@{Data}!checkMaxWaterCity@{checkMaxWaterCity}}
+\index{checkMaxWaterCity@{checkMaxWaterCity}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{checkMaxWaterCity()}{checkMaxWaterCity()}}
+{\footnotesize\ttfamily void Data\+::check\+Max\+Water\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks and prints the maximum water flow to a specific city. 
+
+This function calculates the maximum flow of water to a specific city in the network using the Edmonds-\/\+Karp algorithm. The complexity of this algorithm is O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices in the graph and E is the number of edges. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00362}{362}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a7865a3e4f87b264aa85679eb412170f5}\label{class_data_a7865a3e4f87b264aa85679eb412170f5} 
+\index{Data@{Data}!checkMaxWaterWholeNetwork@{checkMaxWaterWholeNetwork}}
+\index{checkMaxWaterWholeNetwork@{checkMaxWaterWholeNetwork}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{checkMaxWaterWholeNetwork()}{checkMaxWaterWholeNetwork()}}
+{\footnotesize\ttfamily void Data\+::check\+Max\+Water\+Whole\+Network (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks and prints the maximum water flow in the entire network. 
+
+This function calculates the maximum flow of water in the entire network using the Edmonds-\/\+Karp algorithm. Therefore the complexity of this algorithm is O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices in the graph and E is the number of edges. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00350}{350}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a66e04cc898e7fcbd23e13fd1c24486e3}\label{class_data_a66e04cc898e7fcbd23e13fd1c24486e3} 
+\index{Data@{Data}!citiesAffectedANYPipelineRupture@{citiesAffectedANYPipelineRupture}}
+\index{citiesAffectedANYPipelineRupture@{citiesAffectedANYPipelineRupture}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{citiesAffectedANYPipelineRupture()}{citiesAffectedANYPipelineRupture()}}
+{\footnotesize\ttfamily void Data\+::cities\+Affected\+ANYPipeline\+Rupture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines and prints the cities affected by any pipeline rupture specified by the user. This function simulates the effect of pipeline rupture(s) by temporarily removing the affected pipeline(s) from the graph. It then recalculates the flow of water in the network using the Edmonds-\/\+Karp algorithm and checks for any decrease in water flow to cities. 
+
+The time complexity of this function depends on the number of cities (n), the number of specified pipelines to rupture (m), and the complexity of the Edmonds-\/\+Karp algorithm, which is O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph. Removing pipelines from the graph and recalculating the flow using the Edmonds-\/\+Karp algorithm takes O(m \texorpdfstring{$\ast$}{*} (\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2)) time. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00621}{621}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a189d0a151882ff1f96d8b0cbf3ffd7ee}\label{class_data_a189d0a151882ff1f96d8b0cbf3ffd7ee} 
+\index{Data@{Data}!citiesAffectedPipelineRupture@{citiesAffectedPipelineRupture}}
+\index{citiesAffectedPipelineRupture@{citiesAffectedPipelineRupture}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{citiesAffectedPipelineRupture()}{citiesAffectedPipelineRupture()}}
+{\footnotesize\ttfamily void Data\+::cities\+Affected\+Pipeline\+Rupture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines and prints the cities affected by pipeline rupture. This function simulates the effect of a pipeline rupture on the network by temporarily removing the specified pipeline(s) from the graph. It then recalculates the flow of water in the network using the Edmonds-\/\+Karp algorithm and checks for any decrease in water flow to cities. 
+
+The time complexity of this function depends on the number of pipelines to be ruptured (let\textquotesingle{}s denote it as k) and the complexity of the Edmonds-\/\+Karp algorithm, which is O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph. Removing k pipelines from the graph and recalculating the flow using the Edmonds-\/\+Karp algorithm for each pipeline rupture takes O(k \texorpdfstring{$\ast$}{*} (\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2)) time. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00464}{464}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a9c6596a76519e591d637249fab2b12b2}\label{class_data_a9c6596a76519e591d637249fab2b12b2} 
+\index{Data@{Data}!citiesAffectedPumpingStationRemoval@{citiesAffectedPumpingStationRemoval}}
+\index{citiesAffectedPumpingStationRemoval@{citiesAffectedPumpingStationRemoval}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{citiesAffectedPumpingStationRemoval()}{citiesAffectedPumpingStationRemoval()}}
+{\footnotesize\ttfamily void Data\+::cities\+Affected\+Pumping\+Station\+Removal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines and prints the cities affected by the removal of a pumping station. This function simulates the effect of removing a pumping station from the network by temporarily removing the station from the graph. It then recalculates the flow of water in the network using the Edmonds-\/\+Karp algorithm and checks for any decrease in water flow to cities. 
+
+The time complexity of this function depends on the number of cities (n) and the complexity of the Edmonds-\/\+Karp algorithm, which is O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph. Removing a pumping station from the graph and recalculating the flow using the Edmonds-\/\+Karp algorithm takes O(n \texorpdfstring{$\ast$}{*} (\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2)) time. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00564}{564}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a5245d45a7b15f80399fb2d4f89e572f1}\label{class_data_a5245d45a7b15f80399fb2d4f89e572f1} 
+\index{Data@{Data}!citiesAffectedWaterReservoirRemoval@{citiesAffectedWaterReservoirRemoval}}
+\index{citiesAffectedWaterReservoirRemoval@{citiesAffectedWaterReservoirRemoval}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{citiesAffectedWaterReservoirRemoval()}{citiesAffectedWaterReservoirRemoval()}}
+{\footnotesize\ttfamily void Data\+::cities\+Affected\+Water\+Reservoir\+Removal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines and prints the cities affected by the removal of a water reservoir. This function simulates the effect of removing a water reservoir from the network by temporarily removing the reservoir vertex from the graph. It then recalculates the flow of water in the network using the Edmonds-\/\+Karp algorithm and checks for any decrease in water flow to cities. 
+
+The time complexity of this function depends on the number of cities (n) and the complexity of the Edmonds-\/\+Karp algorithm, which is O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph. Removing a reservoir from the graph and recalculating the flow using the Edmonds-\/\+Karp algorithm takes O(n \texorpdfstring{$\ast$}{*} (\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2)) time. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00514}{514}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a0e13408715473aaa3bddf756fa2e3f7b}\label{class_data_a0e13408715473aaa3bddf756fa2e3f7b} 
+\index{Data@{Data}!cleanUp@{cleanUp}}
+\index{cleanUp@{cleanUp}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{cleanUp()}{cleanUp()}}
+{\footnotesize\ttfamily void Data\+::clean\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cleans up resources and deallocates memory. 
+
+
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00701}{701}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_aa96980c0dea466a3447aa3e468f7d3f8}\label{class_data_aa96980c0dea466a3447aa3e468f7d3f8} 
+\index{Data@{Data}!createEdmondskarpG@{createEdmondskarpG}}
+\index{createEdmondskarpG@{createEdmondskarpG}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{createEdmondskarpG()}{createEdmondskarpG()}}
+{\footnotesize\ttfamily void Data\+::create\+EdmondskarpG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a modified graph for the Edmonds-\/\+Karp algorithm and performs the maximum flow calculation. 
+
+
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00317}{317}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_aecd386578e619f31c0601224ebc7a9f8}\label{class_data_aecd386578e619f31c0601224ebc7a9f8} 
+\index{Data@{Data}!deepCopyGraph@{deepCopyGraph}}
+\index{deepCopyGraph@{deepCopyGraph}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{deepCopyGraph()}{deepCopyGraph()}}
+{\footnotesize\ttfamily void Data\+::deep\+Copy\+Graph (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}}]{graph,  }\item[{unordered\+\_\+map$<$ string, Vertex$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} $>$}]{oldmap,  }\item[{unordered\+\_\+map$<$ string, Vertex$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{newmap }\end{DoxyParamCaption})}
+
+
+
+Performs a deep copy of the graph. This function deep copies the graph, including all its vertices and edges. It iterates through the vertices of the original graph and creates deep copies of them, adding them to the new graph. Then, it iterates through the edges of each vertex, creating new edges in the new graph while maintaining their weights, flows, and reverses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & = A pointer to the original graph to be copied. \\
+\hline
+{\em oldmap} & = A map that maps the codes of vertices in the original graph to the vertices themselves. \\
+\hline
+{\em newmap} & = A map used to map the codes of new (copied) vertices to the vertices themselves. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a5633aaff2763d1b9b528adaa8f164193}\label{class_data_a5633aaff2763d1b9b528adaa8f164193} 
+\index{Data@{Data}!print\_calculateStatistics@{print\_calculateStatistics}}
+\index{print\_calculateStatistics@{print\_calculateStatistics}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{print\_calculateStatistics()}{print\_calculateStatistics()}}
+{\footnotesize\ttfamily void Data\+::print\+\_\+calculate\+Statistics (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{class_node_data}{Node\+Data}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}}]{graph,  }\item[{double}]{n\+Pipes }\end{DoxyParamCaption})}
+
+
+
+Calculates and prints statistics about the difference between pipe capacity and flow. This function calculates statistics including the average difference, variance, and maximum difference between the capacity and flow of pipes in the given graph, excluding the super\+Source and super\+Sink nodes from the calculation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & = a pointer to the graph containing the pipe network. \\
+\hline
+{\em n\+Pipes} & = the total number of pipes in the network. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00383}{383}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a8797dd58e363976ab3f7163e6971466a}\label{class_data_a8797dd58e363976ab3f7163e6971466a} 
+\index{Data@{Data}!read\_cities@{read\_cities}}
+\index{read\_cities@{read\_cities}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{read\_cities()}{read\_cities()}}
+{\footnotesize\ttfamily void Data\+::read\+\_\+cities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read data from the "{}cities.\+csv"{} / "{}cities\+\_\+madeira.\+csv"{} file and populate \doxylink{class_city}{City} objects. This function reads data from the "{}cities.\+csv"{} / "{}cities\+\_\+madeira.\+csv"{} file, creates \doxylink{class_city}{City} objects for each entry, and populates the corresponding data structures in the \doxylink{class_data}{Data} class. 
+
+The time complexity of this function depends on the number of entries in the "{}cities.\+csv"{} / "{}cities\+\_\+madeira.\+csv"{} file. Let \textquotesingle{}n\textquotesingle{} be the number of lines in the file. Since each line is processed sequentially, the time complexity is O(n), assuming constant time operations for each line read and processing. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a2e8a6d55b0d24507bedd5bb56fc4113e}\label{class_data_a2e8a6d55b0d24507bedd5bb56fc4113e} 
+\index{Data@{Data}!read\_pipes@{read\_pipes}}
+\index{read\_pipes@{read\_pipes}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{read\_pipes()}{read\_pipes()}}
+{\footnotesize\ttfamily void Data\+::read\+\_\+pipes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read data from the "{}pipes.\+csv"{} / "{}pipes\+\_\+madeira.\+csv"{} file and populate \doxylink{class_pipe}{Pipe} objects. This function reads data from the "{}pipes.\+csv"{} / "{}pipes\+\_\+madeira.\+csv"{} file, creates \doxylink{class_pipe}{Pipe} objects for each entry, and populates the corresponding data structures in the \doxylink{class_data}{Data} class. 
+
+The time complexity of this function depends on the number of entries in the "{}pipes.\+csv"{} / "{}pipes\+\_\+madeira.\+csv"{} file. Let \textquotesingle{}n\textquotesingle{} be the number of lines in the file. Since each line is processed sequentially, the time complexity is O(n), assuming constant time operations for each line read and processing. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_ab7488b4ba6286ea84fd0b814dba06666}\label{class_data_ab7488b4ba6286ea84fd0b814dba06666} 
+\index{Data@{Data}!read\_reservoir@{read\_reservoir}}
+\index{read\_reservoir@{read\_reservoir}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{read\_reservoir()}{read\_reservoir()}}
+{\footnotesize\ttfamily void Data\+::read\+\_\+reservoir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read data from the "{}reservoirs.\+csv"{} / "{}reservoirs\+\_\+madeira.\+csv"{} file and populate \doxylink{class_reservoir}{Reservoir} objects. This function reads data from the "{}reservoirs.\+csv"{} / "{}reservoirs\+\_\+madeira.\+csv"{} file, creates \doxylink{class_reservoir}{Reservoir} objects for each entry, and populates the corresponding data structures in the \doxylink{class_data}{Data} class. 
+
+The time complexity of this function depends on the number of entries in the "{}reservoirs.\+csv"{} / "{}reservoirs\+\_\+madeira.\+csv"{} file. Let \textquotesingle{}n\textquotesingle{} be the number of lines in the file. Since each line is processed sequentially, the time complexity is O(n), assuming constant time operations for each line read and processing. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+\Hypertarget{class_data_a0dd50a5fc4c2b5ee7f1df98c4833a561}\label{class_data_a0dd50a5fc4c2b5ee7f1df98c4833a561} 
+\index{Data@{Data}!read\_stations@{read\_stations}}
+\index{read\_stations@{read\_stations}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{read\_stations()}{read\_stations()}}
+{\footnotesize\ttfamily void Data\+::read\+\_\+stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read data from the "{}stations.\+csv"{} / "{}stations\+\_\+madeira.\+csv"{} file and populate \doxylink{class_station}{Station} objects. This function reads data from the "{}stations.\+csv"{} / "{}stations\+\_\+madeira.\+csv"{} file, creates \doxylink{class_station}{Station} objects for each entry, and populates the corresponding data structures in the \doxylink{class_data}{Data} class. 
+
+The time complexity of this function depends on the number of entries in the "{}stations.\+csv"{} / "{}stations\+\_\+madeira.\+csv"{} file. Let \textquotesingle{}n\textquotesingle{} be the number of lines in the file. Since each line is processed sequentially, the time complexity is O(n), assuming constant time operations for each line read and processing. 
+
+Definition at line \mbox{\hyperlink{_data_8cpp_source_l00110}{110}} of file \mbox{\hyperlink{_data_8cpp_source}{Data.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Data.\+h\item 
+C\+:/\+Users/\+Asus/\+Desktop/\+Universidade/2º ANO/2º Semestre/\+DA/\+Projeto1/\+Projeto\+DA1/Data.\+cpp\end{DoxyCompactItemize}
